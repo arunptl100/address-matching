@@ -29,12 +29,17 @@ for col_cells_sa2 in worksheet.iter_cols(min_col=2, max_col=2, min_row=2):
     for cell_sa2 in col_cells_sa2:
         sa2_l.append(cell_sa2.value.upper())
 
-# find matching addresses from each list to find matches
+# determine number of address before matching
+num_addresses = len(sa1_l) + len(sa2_l)
+
+# find matching addresses from each list
 matched_addr = []
 for addr_1 in sa1_l:
-    # populate a list of matching addr_match objects
+    # populate a list of matching addr_match objects for some address in list 1
     matches = []
+    # iterate through every address in list 2
     for addr_2 in sa2_l:
+        # determine fuzzy matching ratio
         f_ratio = fuzz.ratio(addr_1, addr_2)
         f_tkn_ratio = fuzz.token_sort_ratio(addr_1, addr_2)
         if f_tkn_ratio >= 75:
@@ -51,13 +56,12 @@ for addr_1 in sa1_l:
         # now append the match and addr_1 to matched_addr list
         print("Found a match\n  ", addr_1, "||", match.addr, "\n\tratio: ",
             match.f_ratio, "tkn ratio: ", match.f_tkn_ratio)
+        # TODO: create an object storing the address and its matching address 
         matched_addr.append(match.addr)
         matched_addr.append(addr_1)
         # remove the matching address from sa2_l
         sa2_l.remove(match.addr)
 
-# determine number of address before matching
-print("# Addresses:", len(sa1_l) + len(sa2_l))
-# determine number of unmatched addresses
+print("# Σ Addresses:", num_addresses)
 print("matched", len(matched_addr), "addresses")
-print("# unmatched addresses:", (len(sa1_l) + len(sa2_l)) - len(matched_addr))
+print("# Σ unmatched addresses:", (num_addresses - len(matched_addr)))
