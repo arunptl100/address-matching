@@ -1,10 +1,12 @@
 from fuzzywuzzy import fuzz
 from openpyxl import load_workbook
+import re
+
 
 # benchmark
-# # Σ Addresses: 3046
-# matched 1554 addresses
-# # Σ unmatched addresses: 1492
+# Σ Addresses: 3046
+# matched 1720 addresses
+# Σ unmatched addresses: 1326
 
 
 # class representing an address and its fuzzy matching ratio
@@ -69,17 +71,27 @@ for addr_1 in sa1_l:
 
         # If the first part of the address is a number, check if they both match
         # E.g 1, Charter House and 2, Charter House should not match!
-        # At this point, the Address has been stripped of commas and is ^case
-        # And the word Flat has been removed
+        # At this point, the Address has been standardised
+        # see standardise_addr() fn for more details
+
         # get first part of the address
         addr_num1 = mod_addr_1.split(' ')[0]
         addr_num2 = mod_addr_2.split(' ')[0]
         # check if the first parts of the address are both numeric
         if (addr_num1.isnumeric()) and (addr_num2.isnumeric()):
             if addr_num1 != addr_num2:
-                # if the nums dont match reduce their ratio 'score' by 20
-                f_tkn_ratio -= 20
-                f_ratio -= 20
+                # if the nums dont match reduce their ratio 'score' by 10
+                f_tkn_ratio -= 10
+                f_ratio -= 10
+
+        #check the post codes match up
+        # get the postcode from each address
+        addr_1_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_1)
+        addr_2_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_2)
+        if addr_1_pcode != addr_2_pcode:
+            # if the postcodes dont match reduce their ratio 'score' by 2
+            f_tkn_ratio -= 2
+            f_ratio -= 2
 
         # check if the address is a potential match
         if (f_tkn_ratio >= 73) and (f_ratio >= 63):
