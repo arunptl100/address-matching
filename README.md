@@ -10,6 +10,6 @@ This project involved writing software that given datasets of UK addresses, find
 	- `pip install openpyxl `
 
 ### Guide
-- The script looks for the dataset in the containing folder resources/Sample_Address_Data.xlsx
+- The script looks for the dataset in the containing folder `resources/Sample_Address_Data.xlsx`
 - The dataset must have addresses in the columns A (1) from one dataset and column B (2) from the other dataset
 -  From the shell run `$  python addr_match.py` 
