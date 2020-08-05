@@ -4,9 +4,9 @@ import re
 
 
 # benchmark
-# Σ Addresses: 3046
-# matched 1720 addresses
-# Σ unmatched addresses: 1326
+# # Σ Addresses: 3046
+# matched 1602 addresses
+# Σ unmatched addresses: 1444
 
 
 # class representing an address and its fuzzy matching ratio
@@ -28,6 +28,10 @@ def standardise_addr(addr):
     addr = addr.replace('FLAT', '')
     # remove the word 'apartment'
     addr = addr.replace('APARTMENT', '')
+    # remove the word 'unit'
+    addr = addr.replace('UNIT', '')
+    # remove the word 'England'
+    addr = addr.replace('ENGLAND', '')
     # strip() removes leading and trailing whitespace
     addr = addr.strip()
     return addr
