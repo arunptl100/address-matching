@@ -17,6 +17,20 @@ class addr_match:
         self.f_tkn_ratio = f_tkn_ratio
 
 
+# Helper function that standardises a given string address
+def standardise_addr(addr):
+    # apply any transformations to addresses
+    # strip all commas away from the address
+    addr = addr.replace(',', '').upper()
+    # remove the word 'flat'
+    addr = addr.replace('FLAT', '')
+    # remove the word 'apartment'
+    addr = addr.replace('APARTMENT', '')
+    # strip() removes leading and trailing whitespace
+    addr = addr.strip()
+    return addr
+
+
 # parse the xlsx dataset using openpyxl into lists
 # ISSUE: large dataset, too much to parse into memory
 # parse each address as you go along?
@@ -42,22 +56,13 @@ for addr_1 in sa1_l:
     # populate a list of matching addr_match objects for some address in list 1
     matches = []
     # iterate through every address in list 2
-    mod_addr_1 = ''
     mod_addr_2 = ''
+    # standardise the address first
+    mod_addr_1 = standardise_addr(addr_1)
     for addr_2 in sa2_l:
-        # apply any transformations to addresses
-        # strip all commas away from the address
-        mod_addr_1 = addr_1.replace(',', '').upper()
-        mod_addr_2 = addr_2.replace(',', '').upper()
-        # remove the word 'flat'
-        mod_addr_1 = mod_addr_1.replace('FLAT', '')
-        mod_addr_2 = mod_addr_2.replace('FLAT', '')
-        # remove the word 'apartment'
-        mod_addr_1 = mod_addr_1.replace('APARTMENT', '')
-        mod_addr_2 = mod_addr_2.replace('APARTMENT', '')
-        # strip() removes leading and trailing whitespace
-        mod_addr_1 = mod_addr_1.strip()
-        mod_addr_2 = mod_addr_2.strip()
+        # standardise the address first
+        mod_addr_2 = standardise_addr(addr_2)
+
         # determine fuzzy matching ratio
         f_ratio = fuzz.ratio(mod_addr_1, mod_addr_2)
         f_tkn_ratio = fuzz.token_sort_ratio(mod_addr_1, mod_addr_2)
