@@ -14,6 +14,8 @@ class addr_match:
 
 
 # parse the xlsx dataset using openpyxl into lists
+# ISSUE: large dataset, too much to parse into memory
+# parse each address as you go along?
 sa1_l = []
 sa2_l = []
 dataset = load_workbook('resources/Sample_Address_Data.xlsx')
@@ -35,12 +37,10 @@ for addr_1 in sa1_l:
     for addr_2 in sa2_l:
         f_ratio = fuzz.ratio(addr_1, addr_2)
         f_tkn_ratio = fuzz.token_sort_ratio(addr_1, addr_2)
-        if f_ratio >= 83:
-            # print("Found a potential match\n  ", addr_1, "||", addr_2, "ratio: ",
-            #     f_ratio, " tkn ratio: ", f_tkn_ratio)
-            # matched_addr.append(addr_1)
-            # matched_addr.append(addr_2)
+        if f_tkn_ratio >= 75:
+            # append the potential match to the matches list
             matches.append(addr_match(addr_2, f_ratio, f_tkn_ratio))
+
     # choose the address from matches with the highest ratio
     # check there's at least one potential match to begin with
     if len(matches) > 0:
@@ -49,10 +49,12 @@ for addr_1 in sa1_l:
             if addr.f_ratio > match.f_ratio:
                 match = addr
         # now append the match and addr_1 to matched_addr list
-        print("Found a match\n  ", addr_1, "||", match.addr, "ratio: ",
-            match.f_ratio, " tkn ratio: ", match.f_tkn_ratio)
+        print("Found a match\n  ", addr_1, "||", match.addr, "\n\tratio: ",
+            match.f_ratio, "tkn ratio: ", match.f_tkn_ratio)
         matched_addr.append(match.addr)
         matched_addr.append(addr_1)
+        # remove the matching address from sa2_l
+        sa2_l.remove(match.addr)
 
 # determine number of address before matching
 print("# Addresses:", len(sa1_l) + len(sa2_l))
