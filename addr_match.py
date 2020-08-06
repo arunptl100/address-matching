@@ -2,11 +2,10 @@ from fuzzywuzzy import fuzz
 from openpyxl import load_workbook
 import re
 
-
 # benchmark
 # # Σ Addresses: 3046
-# matched 1602 addresses
-# Σ unmatched addresses: 1444
+# matched 2262 addresses
+# # Σ unmatched addresses: 784
 
 
 # class representing an address and its fuzzy matching ratio
@@ -22,7 +21,7 @@ class addr_match:
 # Helper function that standardises a given string address
 def standardise_addr(addr):
     # apply any transformations to addresses
-    # strip all commas away from the address
+    # strip all commas away from the address and make it uppercase
     addr = addr.replace(',', '').upper()
     # remove the word 'flat'
     addr = addr.replace('FLAT', '')
@@ -32,6 +31,11 @@ def standardise_addr(addr):
     addr = addr.replace('UNIT', '')
     # remove the word 'England'
     addr = addr.replace('ENGLAND', '')
+    # remove the word 'France'
+    addr = addr.replace('FRANCE', '')
+    # remove the word 'Germany'
+    addr = addr.replace('GERMANY', '')
+    # remove the word 'drive'
     # strip() removes leading and trailing whitespace
     addr = addr.strip()
     return addr
@@ -77,18 +81,19 @@ for addr_1 in sa1_l:
         # E.g 1, Charter House and 2, Charter House should not match!
         # At this point, the Address has been standardised
         # see standardise_addr() fn for more details
-
         # get first part of the address
         addr_num1 = mod_addr_1.split(' ')[0]
         addr_num2 = mod_addr_2.split(' ')[0]
         # check if the first parts of the address are both numeric
         if (addr_num1.isnumeric()) and (addr_num2.isnumeric()):
             if addr_num1 != addr_num2:
-                # if the nums dont match reduce their ratio 'score' by 10
-                f_tkn_ratio -= 10
-                f_ratio -= 10
-
-        #check the post codes match up
+                # if the nums dont match reduce their ratio 'score' by 12
+                f_tkn_ratio -= 12
+                f_ratio -= 12
+            else:
+                f_tkn_ratio += 2
+                f_ratio += 2
+        # check the post codes match up
         # get the postcode from each address
         addr_1_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_1)
         addr_2_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_2)
@@ -96,11 +101,15 @@ for addr_1 in sa1_l:
             # if the postcodes dont match reduce their ratio 'score' by 2
             f_tkn_ratio -= 2
             f_ratio -= 2
-
+        else:
+            f_tkn_ratio += 2
+            f_ratio += 2
         # check if the address is a potential match
         if (f_tkn_ratio >= 73) and (f_ratio >= 63):
             # append the potential match to the matches list
             matches.append(addr_match(addr_2, f_ratio, f_tkn_ratio))
+        # print("DEBUG\n  ", addr_1, "||", addr_2, "\n\tratio: ",
+        #     f_ratio, "tkn ratio: ", f_tkn_ratio)
 
     # choose the address from matches with the highest ratio
     # check there's at least one potential match to begin with
@@ -115,8 +124,13 @@ for addr_1 in sa1_l:
         # TODO: create an object storing the address and its matching address
         matched_addr.append(match.addr)
         matched_addr.append(addr_1)
-        # remove the matching address from sa2_l
 
 print("# Σ Addresses:", num_addresses)
 print("matched", len(matched_addr), "addresses")
 print("# Σ unmatched addresses:", (num_addresses - len(matched_addr)))
+
+print("\n\n\n\n")
+# print a list of unmatched addresses
+for addr in sa1_l:
+    if addr not in matched_addr:
+        print(addr)
