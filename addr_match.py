@@ -4,11 +4,13 @@ import re
 from collections import defaultdict
 from colorama import Fore, Style
 
-# benchmark
-# # Σ Addresses: 3046
-# matched 2262 addresses
-# # Σ unmatched addresses: 784
 
+# # Σ Addresses: 3046
+# matched 2776 addresses
+# # Σ unmatched addresses: 270
+# Tier 2 matches = 464
+# Tier 3 matches = 198
+# Tier 1 matches = 2114
 
 # Data structure storing a dictionary.
 # The keys of the dictionary are numerical
@@ -141,6 +143,12 @@ for addr_1 in sa1_l:
             else:
                 f_tkn_ratio += 2
                 f_ratio += 2
+        else:
+            # then one address must contain a leading number and the other
+            # doesnt, deduct 12
+            f_tkn_ratio -= 12
+            f_ratio -= 12
+
         # check the post codes match up
         # get the postcode from each address
         addr_1_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_1)
