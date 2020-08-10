@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+  <area_name>Leamington Spa</area_name>
+  <bounding_box>
+    <latitude_max>52.332124</latitude_max>
+    <latitude_min>52.220454</latitude_min>
+    <longitude_max>-1.4185</longitude_max>
+    <longitude_min>-1.579</longitude_min>
+  </bounding_box>
+  <country>England</country>
+  <county>Warwickshire</county>
+  <latitude>52.276289</latitude>
+  <listing>
+    <agent_address>158 The Parade, Leamington Spa</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(255579).png</agent_logo>
+    <agent_name>Fine &amp; Country - Leamington Spa</agent_name>
+    <agent_phone>01926 267823</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>An amazing opportunity to acquire this imposing Regency Villa. With a wealth of original features and high ceilings throughout, this property is one of only four of its kind in this highly sought after area of Royal Leamington Spa. It offers five reception rooms and a kitchen on the ground floor, cellar, and versatile upstairs living space with up to seven bedrooms over two floors. The top floor remains laid out as servants quarters but subject to the relevant building regulations could provide extra living accommodation. The property has huge potential but does need modernising to become the perfect family home once more.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55249482?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Newbold Terrace, Leamington Spa, Warwickshire CV32</displayable_address>
+    <first_published_date>2020-06-19 15:12:45</first_published_date>
+    <floor_area>
+      <name>max_floor_area</name>
+      <units>sq_feet</units>
+      <value>5479</value>
+    </floor_area>
+    <floor_plan>https://lc.zoocdn.com/da3b9b7e0fd380d070ac2e863c121c1f37c9627a.jpg</floor_plan>
+    <furnished_state>
+    </furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</image_80_60_url>
+    <image_caption>8420614-Exterior07.Jpg</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</image_url>
+    <last_published_date>2020-06-22 09:29:25</last_published_date>
+    <latitude>52.290085</latitude>
+    <listing_id>55249482</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.528176</longitude>
+    <num_bathrooms>3</num_bathrooms>
+    <num_bedrooms>6</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>5</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>1750000</price>
+    <price_change>
+      <date>2020-06-19 15:10:40</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>1750000</price>
+    </price_change>
+    <price_modifier>guide_price</price_modifier>
+    <property_type>Detached house</property_type>
+    <short_description>&lt;p class=&quot;top&quot;&gt;An amazing opportunity to acquire this imposing Regency Villa. With a wealth of original features and high ceilings throughout, this property is one of only four of its kind in this highly sought after area of Royal Leamington Spa. It offers five reception rooms and a kitchen on the ground floor, cellar, and versatile upstairs living space with up to seven bedrooms over two floors. The top floor remains laid out as servants quarters but subject to the relevant building regulations could provide extra living accommodation. The property has huge potential but does need modernising to become the perfect family home once more.&lt;/p&gt;</short_description>
+    <status>for_sale</status>
+    <street_name>Newbold Terrace</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/a441365b8aecbc041511f06aa67fe0dba6db32a6.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>36 South Bar, Banbury</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(114997).png</agent_logo>
+    <agent_name>Savills - Banbury</agent_name>
+    <agent_phone>01295 977912</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>Beautifully proportioned Edwardian house with a wealth of original features, sympathetically adapted for modern livingLocationWide range of recreational, cultural and retail facilities within Leamington Spa.Private education can be found at Rugby (Rugby School), Leamington Spa (Arnold Lodge Preparatory and Kingsley School for Girls), Dunchurch (Bilton Grange) and Warwick (Warwick School).Communications are excellent with M40 (junction 13) 4.4 miles away providing access to Birmingham, Birmingham International Airport and the north linking to M1, M5 and M6; and to Oxford and London to the south.There are mainline train services from Leamington Spa, Coventry and Rugby into London Marylebone and Euston, and Birmingham New Street.Sporting and recreational facilities in the area include golf at Whitefields, Thurlaston and Staverton; fishing and sailing at Draycote reservoir; theatre at Stratford-upon-Avon; horse racing at Warwick, Stratford-upon-Avon and Towcester.(Distances and times are approximate)DescriptionA carefully restored, extended and much improved family house. Brick construction under a pitched slate roof, built in 1903. Lying in a Conservation Area, this house would be ideal for families wishing to take advantage of the excellent local educational facilities and communication links. Period features include arched part glazed front door, leaded lights, dado and picture rails, moulded ceilings and cornicing, open fireplaces with marble surrounds and cast iron inserts, sash windows (some with shutters), deep skirting boards, elegant staircase, 4-panel internal doors with brass door furniture.The house has been sympathetically modernised by the current owners with attention to detail and installation of quality fittings. A bespoke kitchen and breakfast room with base and eye level units, granite work surfaces and island leads into a light and spacious breakfast area. From here you can enjoy a lovely aspect and direct access onto the garden. Utility room with door to front, ideal for getting the children and shopping into the house.From the central hallway there are four principal reception rooms. These offer generous proportions and ceiling heights, all providing a feeling of space and light. The dining room has an impressive bay window overlooking the garden; the drawing room offers considerable elegance with fireplace; a garden room to rear has aspect and access onto the garden and covered entertaining area; useful television room. Useful rear utility room housing boiler, space and plumbing for washing machine, Belfast sink.Steps descend to the cellar with original wine bins and reasonable ceiling height.Office to side with secondary cloakroom and door to side providing independent access, ideal for working from home.On the first floor there are five bedrooms all offered in excellent order. In particular the main bedroom with extensive built-in bedroom furniture and dual aspect. Bedroom 3 has en suite shower room. Bedroom four is a through room leading to bedroom five and could double up as a nursery or dressing room). Bedroom five has en suite shower room. There is a generous family/en suite bath and shower room with white suite, French bath, pair of hand basins, shower, heated towel rail. Both bedrooms enjoy dual aspect and given their layout make them ideal for guests, au pair or children's bedrooms.Second floor has two further bedrooms, ideal for children with separate WC.Externally the property is accessed through brick piers to paved parking and turning area. There are walled gardens to the rear which have been painstakingly and carefully landscaped. Works include significant hard landscaping, creations of various borders and beds, rose trellising. Hardwood pergola providing covered entertaining area.In addition is a glazed Victorian style entertaining canopy. Garden store, compost area and general storage. Bespoke handmade Alitex greenhouse, power and light connected. Box parterre. Exterior lighting. Garden measures 49 metres max in depth.DirectionsFrom Junction 13 of the M40 head north on the A452 towards Warwick and Leamington Spa. Stay on the A452 to Leamington Spa town centre, crossing over the River Leam and under the railway line. Continue along the A452 until this road reaches the A455 (Rugby Road) roundabout. Take the 2nd exit which is the A452 (Lillington Avenue). Continue over the Kenilworth junction and just before Arlington Avenue, Kimberley House (No 3) can be found on the left-hand side.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/52813228?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Lillington Avenue, Leamington Spa, Warwickshire CV32</displayable_address>
+    <first_published_date>2020-01-31 15:58:25</first_published_date>
+    <floor_plan>https://lc.zoocdn.com/75e47b1cabd0bd9a4c197cf0943925f15cc12c27.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</image_80_60_url>
+    <image_caption>Back</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</image_url>
+    <last_published_date>2020-04-03 14:38:23</last_published_date>
+    <latitude>52.29897</latitude>
+    <listing_id>52813228</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.534369</longitude>
+    <num_bathrooms>0</num_bathrooms>
+    <num_bedrooms>6</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>0</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>1650000</price>
+    <price_change>
+      <date>2020-01-31 14:44:59</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>1650000</price>
+    </price_change>
+    <price_modifier>offers_over</price_modifier>
+    <property_type>Detached house</property_type>
+    <short_description>Beautifully proportioned Edwardian house with a wealth of original features, sympathetically adapted for modern living</short_description>
+    <status>for_sale</status>
+    <street_name>Leamington Spa Warwickshire</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/a62bcb59d9a80eea79401d0edc541a91f7002c2e.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>5 Euston Place, Leamington Spa</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(582567).png</agent_logo>
+    <agent_name>Allsopp &amp; Allsopp</agent_name>
+    <agent_phone>01926 267749</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>We are proud to present this superb example of a six bedroom detached Victorian Villa completewith a wealth of charming period features and private walled garden. Over 3200 ft.sq. The property provides a sense of grandeur throughout and with up to six bedrooms, four reception rooms, a considerable kitchen diner and planning permission for further development of the downstairs accommodation this wonderful family home demands your attention. Grade II listed. EPC exempt.The property benefited from a new roof in 2010 and was rewired in 2005. The property has beenfurther improved upon by way of upgraded central heating throughout with pressurised cylinder andthere is planning permission for a substantial reimagining of the kitchen dining room space, planning ref:W/18/0664Throughout the principle spaces the property benefits from tremendous ceiling height of at leastthree metres enhancing the sense of space and light throughout the property.Innage Close is located just off of Willes Road is something of a well-kept secret. Highly regarded by those who know, the property is located close to the river Leam and looks out towards WelchesMeadow to the rear and is complimented by a hand full of large detached properties. The property is a very short walk into Leamington town centre and railway station with its direct links to both Birmingham (20mins) and London Marylebone (1h20m). The M40 and connecting motorway network is a short drive (10mins) away.The property is ideally situated to service the needs of busy family life, the entirety of Leamington town centre is on your doorstep with its wealth of services and amenities, shops both boutique and chain, multiple award winning parks and green spaces such as Jephson Gardens, museums, doctors, dentist and even a sailing club all with much more besides.ApproachParking on Inage close, you can approach and enter the property via the side door or viathe properties grand front entrance.Main Entrance HallWith grand stone tiled floors leading to the side entrance hallway, stairs to thefirst floor and cellar as well as all principle ground floor spaces.Study14ft6 x 13ft5 - A bright airy home office or further reception room. With soft carpet underfoot, feature period fireplace with marble surround, ceiling cornicing, ceiling rose, a substantial bay window to the front with sash windows and fitted wooden blinds.Sitting Room28ft4 x 15ft7 - A substantial space, currently opened up to include what would have been a formal dining room. The room has soft carpet underfoot, wonderfully lit at both the front and rear of the property but the substantial sashed windows and with a large multi fuel burner with marble surround to the front chimney and open fire with marble surround to the rear chimney. Period plasterwork including roses throughout the space are in excellent condition and there are full height doors leading out onto the terrace at the rear of the property. The space is ideal for relaxing after a busy day and even better for entertaining friends and family.Family Kitchen Diner18ft9 x 16ft1 - With oak engineered floor underfoot, stunning Velux windows overhead providing floods of natural light and a vast array of floor standing kitchen units flanking a central space large enough to house a substantial dining table to easily sit 10. The worktops are granite with same splashback along the length of the units and there is a substantial range cooker with 8 ring gas hob and double oven. Integrated there is a dishwasher, room for an American style fridge and freezer and doors out into the rear garden. There is also passed planning for a substantial reimagining of this space as per planning ref: W/18/0664.UtilityA vital space in a family home, with room for various white goods as you would expect and conveniently located close to the Kitchen and downstairs WC.CloakroomTiled floor with WC and wash basin.Family Room10ft1 x 11ft3 - A lovely family snug, with period features on display, a perfect space to retreat to after a busy day or somewhere that kids can unwind away from their parents.Master Bedroom17ft2 x 11ft8 - With soft carpet underfoot, brilliantly lit due to the large sash window, period fireplace, ceiling cornicing and picture rail. As expected there is considerable ceiling height and more than enough room for a super king sized bed and other bedroom furniture. There is also a built in closetBedroom Two14ft6 x 13ft5 - Another considerable king sized bedroom with period features and ample space for plenty of large bulky bedroom furniture as well as features such as an original Victorian fireplace and picture rail.Bedroom Three10ft10 x 15ft7 - Another king sized bedroom, again with period features such as picture rail, original fireplace and decorated to a high standard in soft creams and whites.Bedroom Four13ft5 x 11ft3 - A comfortable double in size, with period features and ample room for as much bedroom furniture as you might wish for.Master BathroomOne of two family bathrooms on the 1st floor, the room benefits from a separate bath and shower cubicle with rainfall shower, fully tiled to full height throughout in a lavish style and well-lit due to the ample sash window.Second Family BathroomAgain with separate bath and shower, fully tiled throughout and benefitting from a room for two oval bath sunken into tiled platform and large shower tray with multi jet shower and a large sash window providing ample natural light. There is also a separate WC to this floor.Bedroom Five7ft8 x 11ft1 - Located towards the top of the property this is a further double bedroom with closet storage.Playroom/ Bedroom Six16ft8 x 18ft5 - A large expanse at the top of the property forming part of the attic conversion. With multiple Velux widows providing natural light, the room is formed in a horseshoe around the stairs cash and is currently configured as a playroom, however could quite easily be used as a further and quite considerable bedroom. There is ample storage both in the eaves and as closet space.Cellar10ft10 x 15ft9 - Dual chambered space perfect for use as a workshop, storage or for further development.Rear GardenA large space at the rear of the property accessible from Inage close via the double wooden gates to the rear. This private walled garden has all the room you could want for entertaining al fresco and lots of space for children to play. There are multiple seating areas and you could easily park multiple vehicles within the grounds without sacrificing much in the way of garden at all.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55208183?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Willes Road, Leamington Spa CV31</displayable_address>
+    <first_published_date>2020-06-16 12:46:19</first_published_date>
+    <floor_plan>https://lc.zoocdn.com/60dc20ddd7cf9d2bf6c0e1657b1769ac580145c8.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</image_80_60_url>
+    <image_caption>Picture No. 02</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</image_url>
+    <last_published_date>2020-06-18 09:22:55</last_published_date>
+    <latitude>52.287575</latitude>
+    <listing_id>55208183</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.525095</longitude>
+    <num_bathrooms>0</num_bathrooms>
+    <num_bedrooms>6</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>4</num_recepts>
+    <outcode>CV31</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>1100000</price>
+    <price_change>
+      <date>2020-06-16 12:43:54</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>1100000</price>
+    </price_change>
+    <price_modifier>offers_over</price_modifier>
+    <property_type>Detached house</property_type>
+    <short_description>We are proud to present this superb example of a six bedroom detached Victorian Villa complete with a wealth of charming period features and private walled garden. Over 3200 ft.sq. The property provides a sense of grandeur throughout and (truncated)</short_description>
+    <status>for_sale</status>
+    <street_name>Willes Road</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/e49e3228342fb1dfafd369f62c1a7955126f55b6.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>158 The Parade, Leamington Spa</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(255579).png</agent_logo>
+    <agent_name>Fine &amp; Country - Leamington Spa</agent_name>
+    <agent_phone>01926 267823</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>Modern detached six-bedroom family home in North Leamington Spa, set well back from the road through electric gates. Open plan living with a superb kitchen/family room and orangery. Detached double garage and plenty of parking.Please click on the property brochure and the video tab for full details of this property. Or call us for more information.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55246040?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Lillington Road, Leamington Spa, Warwickshire CV32</displayable_address>
+    <first_published_date>2020-06-19 10:49:54</first_published_date>
+    <floor_area>
+      <name>max_floor_area</name>
+      <units>sq_feet</units>
+      <value>2684</value>
+    </floor_area>
+    <floor_plan>https://lc.zoocdn.com/766af0c292867a1333925415880d3bc2eddc768a.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</image_80_60_url>
+    <image_caption>8421222-Exterior12.Jpg</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</image_url>
+    <last_published_date>2020-06-20 22:30:07</last_published_date>
+    <latitude>52.304604</latitude>
+    <listing_id>55246040</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.528168</longitude>
+    <num_bathrooms>3</num_bathrooms>
+    <num_bedrooms>6</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>3</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>1000000</price>
+    <price_change>
+      <date>2020-06-19 10:48:08</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>1000000</price>
+    </price_change>
+    <price_modifier>offers_over</price_modifier>
+    <property_type>Detached house</property_type>
+    <short_description>&lt;p class=&quot;top&quot;&gt;Modern detached six-bedroom family home in North Leamington Spa, set well back from the road through electric gates. Open plan living with a superb kitchen/family room and orangery. Detached double garage and plenty of parking.&lt;/p&gt;&lt;p class=&quot;top&quot;&gt;Please click on the property brochure and the video tab for full details of this property. Or call us for more information.&lt;/p&gt;</short_description>
+    <status>for_sale</status>
+    <street_name>Lillington Road</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/db983c6a4ba4daaedbb55550143336b2fc0f86a1.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>Nationwide Estate Agent, Head Office: Suite 7, First Floor, Cranmore Place, Cranmore Drive, Shirley, Solihull</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(584439).png</agent_logo>
+    <agent_name>Purplebricks, Head Office</agent_name>
+    <agent_phone>024 7511 8874</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>An immaculately presented and substantially enlarged four/five bedroom detached property in a highly sought after area of Leamington Spa. The property boasts exceptional views of open countryside to the front and to the rear is a well manicured and generous garden with bespoke garden office. The most striking focal point is the magnificent open plan dining/kitchen/family room with full width bi-folding doors out to the garden. There is also planning granted for a further single storey extension.See link to 3D video tour here: Entrance HallwayStriking feature entrance door with etched glazed panels above and to either side and opening into:-Large Reception Hallway - With Karndean burnt ginger wood flooring extending throughout, feature central staircase ascending to the first floor, door to walk-in storage cupboard and further stylish solid wood doors radiating to the following ground floor accommodation.LoungeLounge - 14'4&quot; x 13'10&quot; (4.37m x 4.22m) - With Karndean burnt ginger flooring extending through from the reception hallway, double glazed window to front elevation with stylish bespoke shutters, feature inset pebbled gas fire forming a focal point to the room with illuminated display recesses to the side.Study / Bedroom FiveStudy/Bedroom 5 - 10'11&quot; x 7'11&quot; (3.33m x 2.41m) - Karndean flooring extending through from the reception hallway, double glazed window and bespoke window shutter.Bedroom TwoBedroom Two - 11'0 x 10'11&quot; (3.35m x 3.33m) - With double glazed window having bespoke window shutter, Karndean flooring and inset ceiling downlighters.Master En-SuiteMaster Bedroom - 14'0&quot; x 11'11&quot;A comprehensive range of fitted furniture including an extensive range of wardrobes across one side housing hanging rails, integrated drawer storage and overhead shelving, coordinating bedside drawer cabinets together with dressing table and double glazed window. There is also a large access to the roof space.En Suite Shower Room - Beautifully appointed with fully ceramic tiled walls and contrasting ceramic tiled floor complemented by contemporary white fittings comprising low level WC with push button flush, hand basin with mixer tap and integrated storage cupboard below housing electric shaver point, large walk-in shower enclosure with fitted rain shower head and glazed screen, mirrored wall cabinet, inset ceiling downlighters and etched double glazed window.Kitchen/Dining RoomKitchen/Dining &amp; Family Room - 27'1&quot; max x 10'11&quot; max (8.26m max x 3.33m max)The kitchen is stylishly and comprehensively equipped with a range of high gloss soft grey units comprising inset 1½ bowl stainless steel sink unit with mixer tap, attractive wood grain work surfaces with glazed splashbacks contrasting with the units, the worktops having an excellent range of base cupboards and pan drawers below together with integrated appliances comprising stainless steel gas hob by Neff with central wok burner, coordinating Neff extractor hood above, integrated Neff electric oven having cupboards above and below and integrated microwave, integrated dishwasher together with integrated fridge and separate freezer, coordinating range of wall cabinets to two sides, inset downlighters throughout the kitchen and family room areas. Bi-fold doors extend across the rear of the property and providing a vista to the rear garden and a double glazed roof atrium allows plenty of natural light to the living area.Utility RoomUtility Room - 8'10&quot; x 5'11&quot; (2.69m x 1.80m) - Fitted with a range of units to match those in the kitchen and featuring an inset single drainer stainless steel sink unit with mixer tap, wood grain worktops with glazed splashbacks and base cupboard below with space and plumbing for automatic washing machine, coordinating wall cupboards above, central heating radiator, Karndean flooring, inset ceiling downlighters, UPVC double glazed door gives external access to the side of the property and a further door leads to:-Cloakroom/WC - With stylish fittings comprising low level WC with concealed cistern, hand basin with mixer tap, integrated storage drawer below and tiled splashback, inset ceiling downlighters and Karndean flooring.First Floor LandingLanding - Which has been cleverly designed to take advantage of a feature double glazed window to the front elevation allowing an outlook to fields on the opposite side of Leicester Lane.Bedroom ThreeBedroom Three - 14'5&quot; max x 14'2&quot; max (4.39m max x 4.32m max) - With double glazed windows to front and rear elevations having bespoke fitted shutters, fitted wardrobes and storage including integrated drawer storage, inset ceiling downlighters and feature window with fitted storage window seat.Bedroom FourBedroom Four - 14'3&quot; x 13'8&quot; (4.34m x 4.17m) - + recessed area with window.Having a range of fitted furniture similar to bedroom three comprising fitted wardrobes with integrated drawer storage, further fitted drawer storage/dressing table, double glazed windows to front and rear elevations with bespoke shutters, inset ceiling downlighters and louvre doors to further storage areas.BathroomBathroom - Being fully ceramic tiled with contrasting tiles to the floor and stylish contemporary four piece white suite comprising low level WC with concealed cistern and push button flush, surface mounted hand basin with mixer tap and integrated cupboard below, fitted bath with mixer tap, separate shower enclosure having sliding glazed door fronting and fitted shower unit, chrome towel warmer/radiator, inset ceiling downlighters and etched double glazed window.FrontFront - The property enjoys a generous frontage to Leicester Lane with driveway parking for six vehicles and lawned garden alongside. The driveway extends to form a pathway across the front of the house and also provides direct vehicular access to:Garage - 19'10&quot; x 8'4&quot; (internally) (6.05m x 2.54m ( intern - Having electrically operated roller shutter door fronting, wall mounted gas fired combination boiler, wall mounted electric consumer unit, electric light and power, gas meter and door giving external access to the rear.Rear GardenRear Garden - A well manicured and generously proportioned rear garden featuring a block paved terrace extending immediately across the rear of the house from which two steps ascend to the main garden which is mainly laid to lawn with shaped stocked borders to either side. There is a brand new wooden shed and part way through the garden to the left is a delightful timber decked sun terrace with feature coordinating elevated beds to three sides and central rose arch leading through to the far end of the garden.Home Office/Garden Room - 11'0&quot; x 10'2&quot; (3.35m x 3.10m) - Being tucked at the far end of the garden and providing a useful haven away from the house itself having double glazed bi-fold doors fronting providing an outlook through the garden and back towards the house, double glazed window, inset ceiling downlighters, electric power and wood grain laminate flooring.Disclaimer For Virtual ViewingsIf you choose to make an offer based solely on a virtual viewing, then Purplebricks does not accept any liability for errors in the information provided, including but not limited to, measurements, photography and video content in the event that a physical valuation has not been carried out. Should you decide to make an offer on a property, you accept that any representations made in relation to the property may be based on virtual information provided by the Vendor. In the event that the valuation was carried out virtually, Purplebricks is not responsible for this information or its accuracy. If in any doubt, you should make additional enquiries before completion.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55045291?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Leicester Lane, Leamington Spa CV32</displayable_address>
+    <first_published_date>2020-06-01 13:01:54</first_published_date>
+    <floor_plan>https://lc.zoocdn.com/d6690eb7838fc0c054c11a7c77962fd72efe94ec.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</image_80_60_url>
+    <image_caption>
+</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</image_url>
+    <last_published_date>2020-06-08 10:46:13</last_published_date>
+    <latitude>52.314453</latitude>
+    <letting_fees>Tenant administration fees will be charged at a cost of £200 + vat for up to two people. Each additional person will be charged at £60 + vat. If a guarantor is required there will be an additional charge of £60 + vat</letting_fees>
+    <listing_id>55045291</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.520069</longitude>
+    <num_bathrooms>1</num_bathrooms>
+    <num_bedrooms>5</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>3</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>850000</price>
+    <price_change>
+      <date>2020-06-01 13:00:03</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>850000</price>
+    </price_change>
+    <price_modifier>offers_in_region_of</price_modifier>
+    <property_type>Detached house</property_type>
+    <short_description>An immaculately presented and substantially enlarged four/five bedroom detached property in a highly sought after area of Leamington Spa. The property boasts exceptional views of open countryside to the front and to the rear is a well manicured and generous garden with bespoke garden office. The most striking focal point is the magnificent open plan dining/kitchen/family room with full width bi-folding doors out to the garden. There is also planning granted for a further single storey extension.  See link to 3D video tour here:</short_description>
+    <status>for_sale</status>
+    <street_name>Leicester Lane</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/4929edaf4561ff13d22027faa90e229fc9937fcd.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>Bridgeway, Stratford</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(133309).png</agent_logo>
+    <agent_name>Knight Frank - Stratford Upon Avon Sales</agent_name>
+    <agent_phone>01789 229872</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>The Coniston Penthouse is an unique 2 bedroom apartment with vaulted ceilings, a south easterly facing 86 sq ft balcony and basement parking for 4 cars with charging point. Set in a prime tree lined location, Leamington station is 1.3 miles and London Marylebone can be reached by train in 70 minutes while the M40 is just minutes away. The town centre is 0.7 mile while Leamington lawn tennis and squash club is just a few minutes' walk. Leamington Spa is regularly identified as one of the best places to live in the UK.The Coniston penthouse is very special. Built by award winning Housestyle Countrywide Ltd the second floor penthouse has lift access floor and 1,497 sq. Ft. Of accommodation including 86 sq. Ft. Of balcony space accessed from the living area. Comprising: Entrance hallway, cloakroom, 29 ft. Vaulted open plan kitchen/dining/living room with huge feature window and roof lanterns and the kitchen (to be selected by the purchaser from the developer's range) will have integrated appliances, master bedroom with large feature window and en suite bathroom with separate shower. Guest bedroom with en suite bathroom. The heated driveway leads to secure basement parking for 4 cars with an adjacent private storage room, and an ultramodern glass lift and staircase leads from the basement to all floors. A 10 year structural warranty is in place.The apartments benefit from state of the art ground source heating and Mechanical Ventilation &amp; Heat Recovery (mvhr), gently and quietly heating or cooling the home with clean filtered fresh air and there is underfloor heating throughout. The apartments are eco-friendly and will have low running costs.The service charge is £1,250.00 per annum and is capped for 5 years. A 10 year structural warranty is in placeThe Limes occupies a prominent corner position in a highly desirable residential area on Guys Cliffe Avenue. The apartments are conveniently placed, less than a mile from Leamington Spa's town centre and Leamington Lawn Tennis and Squash Club is moments from the property.For the commuter, trains run from Leamington Spa (which is 1.3 miles away) and Warwick Parkway (3.6 miles) to Birmingham and London Marylebone. The motorway network is easily reached via junction 13 or 14 of the M40.The area has some excellent schools including Kingsley School for Girls, Trinity Catholic School, Arnold Lodge and in Warwick, King's High School for Girls, Warwick Prep School and Warwick Boys School.Leamington Spa town centre 0.7 mile, Train station 1.3 miles, Warwick 1.5 miles, Warwick Parkway Train station 4 miles, M40 (J15) 3.5 miles, Coventry 9 miles, Stratford upon Avon 12 miles (Distances and time approximate).</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55186404?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>The Limes, Guys Cliffe Avenue, Leamington Spa CV32</displayable_address>
+    <first_published_date>2020-03-30 18:37:06</first_published_date>
+    <floor_area>
+      <name>max_floor_area</name>
+      <units>sq_feet</units>
+      <value>1497</value>
+    </floor_area>
+    <floor_area>
+      <name>min_floor_area</name>
+      <units>sq_feet</units>
+      <value>1411</value>
+    </floor_area>
+    <floor_plan>https://lc.zoocdn.com/f9d5be8c58b37552cc85ac771639dd424f95e6d9.jpg</floor_plan>
+    <floor_plan>https://lc.zoocdn.com/c006387af845ec4601ca1345a18533c036dfacbe.pdf</floor_plan>
+    <furnished_state>unfurnished</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</image_80_60_url>
+    <image_caption>Image</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</image_url>
+    <last_published_date>2020-06-17 23:39:43</last_published_date>
+    <latitude>52.293976</latitude>
+    <letting_fees>Tenant charges&lt;br&gt;&lt;br&gt;ASTs&lt;br&gt;Holding deposits (per tenancy) One week's rent (ASTs only)&lt;br&gt;Rent&lt;br&gt;Deposit (if rent is under £50,000 per annum) Equivalent to five week's rent&lt;br&gt;Deposit (if rent is between £50,000 and £100,000 per annum) Equivalent to six week's rent&lt;br&gt;Utilities, communication service, council tax and TV Licences&lt;br&gt;Variation of contract at the tenants request (£50 inclusive of VAT) (ASTs only)&lt;br&gt;Change of sharer at the tenant's request (£50 inclusive of VAT per replacement tenant or any reasonable costs incurred if higher) (ASTs only)&lt;br&gt;Early termination at the tenant's request - Should the tenant wish to leave their contract early, they shall be liable to the landlords costs in re-letting the property as well as all rent due under the tenancy until the start date of the replacement tenancy. These costs will be no more than the maximum amount of rent outstanding on the tenancy. (ASTs only)&lt;br&gt;Unpaid rent/returned payments - Interest will be charged at 3% above the Bank of England Base Rate from rent due date until paid in order to pursue non-payment of rent. Please note: This will not be levied until the rent is more than 14 days in arrears.&lt;br&gt;Lost Keys or other security devices - Tenants are liable for the actual cost of replacing any lost keys or other security devices. If the loss results in locks needing to be changed, the actual cost of the locksmith, new lock and replacement keys will be charged to the tenant. If extra costs are incurred there will be a charge of £15 per hour (inclusive of VAT) for the time taken replacing the lost keys of other security devices.&lt;br&gt;&lt;br&gt;Non ASTs&lt;br&gt;Before the tenancy starts:&lt;br&gt;Holding Deposit (Equivalent to two weeks' rent) (Non ASTs only)&lt;br&gt;Deposit (Equivalent to six week's rent (unless agreed otherwise)) (Non ASTs only)&lt;br&gt;Pet deposit (Equivalent to two week's rent in addition to your deposit (as listed above)) (Non ASTs only)&lt;br&gt;Tenancy Agreement fee (£276 inclusive of VAT) (Non ASTs only)&lt;br&gt;Reference fee payable by each tenant/guarantor (£48 inclusive of VAT) (Non ASTs only)&lt;br&gt;Permitted occupant check fee payable by each permitted occupier over the age of 18 (£24 inclusive of VAT) (Non ASTs only)&lt;br&gt;Bank reference fee (refer to your bank as charges vary) (Non ASTs only)&lt;br&gt;Stamp Duty (on tenancies that amount to over £125,000) (Non ASTs only)&lt;br&gt;&lt;br&gt;During the tenancy:&lt;br&gt;Amendment fee for contract negotiation, amending terms and updating your tenancy agreement during your tenancy (£600 inclusive of VAT) (non ASTs only)&lt;br&gt;Utilities (gas, electricity, water and telephone)&lt;br&gt;Council Tax&lt;br&gt;Television licence&lt;br&gt;Installation of cable/satellite (if permitted and applicable)&lt;br&gt;Subscription to cable/satellite supplier&lt;br&gt;Insurance (for your personal and own contents)&lt;br&gt;Garden maintenance&lt;br&gt;&lt;br&gt;Ending your tenancy:&lt;br&gt;Cleaning of the property&lt;br&gt;Inventory check-out (Non ASTs only)&lt;br&gt;Check out arrangement fee (£60 inclusive of VAT) (Non ASTs only)&lt;br&gt;Dilapidations (as agreed)&lt;br&gt;&lt;br&gt;Other fees:&lt;br&gt;Unpaid rent/returned payments (Interest will be charged at 4% above the Bank of England Base Rate from the date due) (Non ASTs only)&lt;br&gt;Arrears letter charge (£24 per letter sent) (Non ASTs only)&lt;br&gt;&lt;br&gt;Knight Frank are members of the Property Redress Scheme (Consumer Redress Scheme) and RICS Dispute Resolution Service (Business Redress Scheme) and have Client Money protection with RICS Client Money Protection Scheme.</letting_fees>
+    <listing_id>55186404</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.551037</longitude>
+    <new_home>true</new_home>
+    <num_bathrooms>2</num_bathrooms>
+    <num_bedrooms>2</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>1</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>850000</price>
+    <price_change>
+      <date>2020-03-30 18:35:14</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>850000</price>
+    </price_change>
+    <price_modifier>guide_price</price_modifier>
+    <property_type>Flat</property_type>
+    <short_description>Ight and spacious 2 bedroom penthouse totalling 1,497 sq ft in Leamington Spa with basement parking for 4 cars and 86 sq ft . 1.3 miles to the station, trains just over 60 mins to London Marylebone.</short_description>
+    <status>for_sale</status>
+    <street_name>The Limes</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/cdda4ea5a8223262b2b189c105ed8e3a760c2bca.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>8a Regent Street, Royal Leamington Spa</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(389225).png</agent_logo>
+    <agent_name>Handles Property</agent_name>
+    <agent_phone>01926 267612</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>A superbly presented and finished to an extremely high standard four bedroomed detached bungalow with a double garage. This property has been recently refurbished to an exceptional standard throughout. The property in brief comprises of an open plan living area, lounge, four double bedrooms, three bathrooms, utility room, loft space, double garage, ample parking to the front and a private rear garden. The property in our eyes must be viewed to apricate the finish and space available for a family.Location – Cockermouth close falls under the CV32 post code and is situated in an urban area. Located on a very private road and the property is situated at the end of the close. Also situated in a great school catchment area and less than two miles from Royal Leamington Spa town centre which gives you access to the high street shops, restaurants, bars and banks.As you enter the property you are greeted with a spacious hall way with a storage cupboard. The property has brand new aluminium double glazing throughout and wet zone under floor heating throughout which is zonal and can be controlled via your smart phone. The amazing and sophisticated open plan living area has plenty of natural light and feels very airy. The area has LED lighting, ample space for a large sofa, large dining table / chairs and other lounge furniture. The kitchen has been finished very elegantly and comprises of neff appliances such as a microwave, hide and slide oven unit, five zone induction hob and ceiling mounted extractor fan. Also benefiting from having a built-in large fridge / freezer, dishwasher and wine cooler. The kitchen has nero marquina work top surfaces and ample storage cupboards. On beautiful summers day you can enjoy the garden aspect with bi folding rear doors which will lead you out to the rear garden. The utility room is located just off the kitchen area and has a sink unit, space for a washing machine, door leading out to the side of the property and loft access. The loft is part boarded and insulated and has a brand-new Worcester Bosch combination boiler.The lounge has a large front window which overlooks the front of the property and has space for a sofa or would make an ideal office / study if you’re working from home. The lounge could also be used as bedroom five. There are four double bedrooms which all have space for bedroom furniture; with the master bedroom having an en-suite / wet room. The en-suite has a low-level W/C, walk in shower, a modern and traditional his and her sink unit, nero marquina marble wall and floor tiles and a heated towel rail. The main bathroom is very elegant and comprises of Carrera marble floor and wall tiles which is laid in a herringbone style, a walk in wet room, heated towel rail and a luxury stone resin egg shell shaped bath. The third bathroom has a walk-in shower unit, low level W/C and sink unit.Outside - To the front of the property you have space for ample parking for your own vehicles as well as guests with two entrance points. To the rear is a great sized patio area and is mainly laid to lawn and having side access which will lead you to the front of the property. The garden is very private and would be great for hosting bbq’s and family events. Having plenty of space for a hot tub / jacuzzi. The double garage has electric doors, power and lighting inside and has an external area to the rear for storage.Estate agents view – This property would appeal to a couple looking to down size and a young family who requires space. The developer has been very creative in their design and has placed a lot of thought in the finish and layout. Call us today for an internal accompanied viewing or further information about the bungalow.We have tried to ensure these details are correct. Handles Property accept no liability should there be any errors and you should seek further clarification should you so wish.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55155330?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Cockermouth Close, Leamington Spa CV32</displayable_address>
+    <first_published_date>2020-06-11 15:59:10</first_published_date>
+    <floor_plan>https://lc.zoocdn.com/c5cff715422c433798bd162751ae6bf5b5ad8105.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</image_80_60_url>
+    <image_caption>
+</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</image_url>
+    <last_published_date>2020-06-13 12:26:46</last_published_date>
+    <latitude>52.297997</latitude>
+    <listing_id>55155330</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.551451</longitude>
+    <num_bathrooms>2</num_bathrooms>
+    <num_bedrooms>4</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>2</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>825000</price>
+    <price_change>
+      <date>2020-06-11 15:57:28</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>825000</price>
+    </price_change>
+    <property_type>Bungalow</property_type>
+    <short_description>Handles Property is delighted to offer for sale by private treaty this stunning fully modernised and extended four double bedroom detached bungalow located within a desirable residential area. An internal inspection is strongly encouraged to appreciate this property and its location to the full.</short_description>
+    <status>for_sale</status>
+    <street_name>Cockermouth Close</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/cad1baedfca1af5af604c59bbcc3051d0ca0ade8.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>Bridgeway, Stratford</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(133309).png</agent_logo>
+    <agent_name>Knight Frank - Stratford Upon Avon Sales</agent_name>
+    <agent_phone>01789 229872</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>Set in a prime tree lined location and part of the Limes development, this attractive penthouse apartment is in a prime locaiton with Leamington station just 1.3 miles with London Marylebone accessible by train in 70 minutes while the M40 is just minutes away. The town centre is 0.7 mile while Leamington lawn tennis and squash club is just a few minutes' walk. Leamington Spa is regularly identified as one of the best places to live in the UK.The Guy's Cliffe Penthouse, built by award winning Housestyle Countrywide Ltd, is on the second floor and has lift access from the basement. There is 1,497 sq ft of accommodation including balcony space accessed from the living area. Comprising: Entrance hallway, cloakroom, vaulted open plan kitchen/dining/living room with huge feature window and roof lanterns and the kitchen (to be selected by the purchaser from the developer's range) will have integrated appliances, master bedroom with large feature window and en suite bathroom with separate shower. Guest bedroom with en suite bathroom. The heated driveway leads to secure basement parking for 2 cars with an adjacent private storage room, and an ultramodern glass lift and staircase leads from the basement to all floors. A 10 year structural warranty is in place.The apartments benefit from state of the art ground source heating and Mechanical Ventilation &amp; Heat Recovery (mvhr), gently and quietly heating or cooling the home with clean filtered fresh air and there is underfloor heating throughout. The apartments are eco-friendly and will have low running costs.The service charge is £1,250.00 per annum and is capped for 5 years. A 10 year structural warranty is in place.The Limes occupies a prominent corner position in a highly desirable residential area on Guys Cliffe Avenue. The apartments are conveniently placed, less than a mile from Leamington Spa's town centre and Leamington Lawn Tennis and Squash Club is moments from the property.For the commuter, trains run from Leamington Spa (which is 1.3 miles away) and Warwick Parkway (3.6 miles) to Birmingham and London Marylebone. The motorway network is easily reached via junction 13 or 14 of the M40.The area has some excellent schools including Kingsley School for Girls, Trinity Catholic School, Arnold Lodge and in Warwick, King's High School for Girls, Warwick Prep School and Warwick Boys School.Leamington Spa town centre 0.7 mile, Train station 1.3 miles, Warwick 1.5 miles, Warwick Parkway Train station 4 miles, M40 (J15) 3.5 miles, Coventry 9 miles, Stratford upon Avon 12 miles (Distances and time approximate)</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/55186286?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>The Limes, Guys Cliffe Avenue, Leamington Spa CV32</displayable_address>
+    <first_published_date>2020-06-12 11:36:40</first_published_date>
+    <floor_area>
+      <name>max_floor_area</name>
+      <units>sq_feet</units>
+      <value>1497</value>
+    </floor_area>
+    <floor_area>
+      <name>min_floor_area</name>
+      <units>sq_feet</units>
+      <value>1411</value>
+    </floor_area>
+    <floor_plan>https://lc.zoocdn.com/0992fc7c935298b939c156162f9c7780a186c899.jpg</floor_plan>
+    <floor_plan>https://lc.zoocdn.com/af95ba69c1e7a63709f1c26855878d766459a98b.pdf</floor_plan>
+    <furnished_state>unfurnished</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</image_80_60_url>
+    <image_caption>Str190176_18.Jpg</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</image_url>
+    <last_published_date>2020-06-17 23:39:42</last_published_date>
+    <latitude>52.293976</latitude>
+    <letting_fees>Tenant charges&lt;br&gt;&lt;br&gt;ASTs&lt;br&gt;Holding deposits (per tenancy) One week's rent (ASTs only)&lt;br&gt;Rent&lt;br&gt;Deposit (if rent is under £50,000 per annum) Equivalent to five week's rent&lt;br&gt;Deposit (if rent is between £50,000 and £100,000 per annum) Equivalent to six week's rent&lt;br&gt;Utilities, communication service, council tax and TV Licences&lt;br&gt;Variation of contract at the tenants request (£50 inclusive of VAT) (ASTs only)&lt;br&gt;Change of sharer at the tenant's request (£50 inclusive of VAT per replacement tenant or any reasonable costs incurred if higher) (ASTs only)&lt;br&gt;Early termination at the tenant's request - Should the tenant wish to leave their contract early, they shall be liable to the landlords costs in re-letting the property as well as all rent due under the tenancy until the start date of the replacement tenancy. These costs will be no more than the maximum amount of rent outstanding on the tenancy. (ASTs only)&lt;br&gt;Unpaid rent/returned payments - Interest will be charged at 3% above the Bank of England Base Rate from rent due date until paid in order to pursue non-payment of rent. Please note: This will not be levied until the rent is more than 14 days in arrears.&lt;br&gt;Lost Keys or other security devices - Tenants are liable for the actual cost of replacing any lost keys or other security devices. If the loss results in locks needing to be changed, the actual cost of the locksmith, new lock and replacement keys will be charged to the tenant. If extra costs are incurred there will be a charge of £15 per hour (inclusive of VAT) for the time taken replacing the lost keys of other security devices.&lt;br&gt;&lt;br&gt;Non ASTs&lt;br&gt;Before the tenancy starts:&lt;br&gt;Holding Deposit (Equivalent to two weeks' rent) (Non ASTs only)&lt;br&gt;Deposit (Equivalent to six week's rent (unless agreed otherwise)) (Non ASTs only)&lt;br&gt;Pet deposit (Equivalent to two week's rent in addition to your deposit (as listed above)) (Non ASTs only)&lt;br&gt;Tenancy Agreement fee (£276 inclusive of VAT) (Non ASTs only)&lt;br&gt;Reference fee payable by each tenant/guarantor (£48 inclusive of VAT) (Non ASTs only)&lt;br&gt;Permitted occupant check fee payable by each permitted occupier over the age of 18 (£24 inclusive of VAT) (Non ASTs only)&lt;br&gt;Bank reference fee (refer to your bank as charges vary) (Non ASTs only)&lt;br&gt;Stamp Duty (on tenancies that amount to over £125,000) (Non ASTs only)&lt;br&gt;&lt;br&gt;During the tenancy:&lt;br&gt;Amendment fee for contract negotiation, amending terms and updating your tenancy agreement during your tenancy (£600 inclusive of VAT) (non ASTs only)&lt;br&gt;Utilities (gas, electricity, water and telephone)&lt;br&gt;Council Tax&lt;br&gt;Television licence&lt;br&gt;Installation of cable/satellite (if permitted and applicable)&lt;br&gt;Subscription to cable/satellite supplier&lt;br&gt;Insurance (for your personal and own contents)&lt;br&gt;Garden maintenance&lt;br&gt;&lt;br&gt;Ending your tenancy:&lt;br&gt;Cleaning of the property&lt;br&gt;Inventory check-out (Non ASTs only)&lt;br&gt;Check out arrangement fee (£60 inclusive of VAT) (Non ASTs only)&lt;br&gt;Dilapidations (as agreed)&lt;br&gt;&lt;br&gt;Other fees:&lt;br&gt;Unpaid rent/returned payments (Interest will be charged at 4% above the Bank of England Base Rate from the date due) (Non ASTs only)&lt;br&gt;Arrears letter charge (£24 per letter sent) (Non ASTs only)&lt;br&gt;&lt;br&gt;Knight Frank are members of the Property Redress Scheme (Consumer Redress Scheme) and RICS Dispute Resolution Service (Business Redress Scheme) and have Client Money protection with RICS Client Money Protection Scheme.</letting_fees>
+    <listing_id>55186286</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.551037</longitude>
+    <new_home>true</new_home>
+    <num_bathrooms>2</num_bathrooms>
+    <num_bedrooms>2</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>1</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>825000</price>
+    <price_change>
+      <date>2020-06-12 11:35:15</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>825000</price>
+    </price_change>
+    <price_modifier>guide_price</price_modifier>
+    <property_type>Flat</property_type>
+    <short_description>The Guy's Cliffe Penthouse is an unique brand new 2 bedroom first-floor apartment with vaulted ceilings, a 86 sq ft balcony and secure basement parking for 2 cars with charging point.</short_description>
+    <status>for_sale</status>
+    <street_name>The Limes</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/511a85ea64c847d121b64d7dc7dfc2b0ed20d166.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>158 The Parade, Leamington Spa</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(255579).png</agent_logo>
+    <agent_name>Fine &amp; Country - Leamington Spa</agent_name>
+    <agent_phone>01926 267823</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>An amazing opportunity to acquire this four-bedroom townhouse. With vast potential having its own separate one-bedroom apartment this property really does lend itself to a variety of uses. This property was previously a nursery and therefore needs modernising/reconfiguring to become the perfect family home once more.Please click on the property brochure for full details of this property. Or call us for more information.</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/53107707?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Spencer Street, Leamington Spa, Warwickshire CV31</displayable_address>
+    <first_published_date>2019-10-22 14:46:48</first_published_date>
+    <floor_area>
+      <name>max_floor_area</name>
+      <units>sq_feet</units>
+      <value>2842</value>
+    </floor_area>
+    <floor_plan>https://lc.zoocdn.com/8b480debf902e95f90687bb2e48c8d330b74d144.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</image_80_60_url>
+    <image_caption>8400166-Exterior04v2.Jpg</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</image_url>
+    <last_published_date>2020-04-01 08:17:28</last_published_date>
+    <latitude>52.2857</latitude>
+    <listing_id>53107707</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.534761</longitude>
+    <num_bathrooms>2</num_bathrooms>
+    <num_bedrooms>4</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>3</num_recepts>
+    <outcode>CV31</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>800000</price>
+    <price_change>
+      <date>2019-10-22 14:45:49</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>900000</price>
+    </price_change>
+    <price_change>
+      <date>2020-01-13 13:44:18</date>
+      <direction>down</direction>
+      <percent>-11.1%</percent>
+      <price>800000</price>
+    </price_change>
+    <price_change_summary>
+      <direction>down</direction>
+      <last_updated_date>2020-01-13 13:44:18</last_updated_date>
+      <percent>-11.1%</percent>
+    </price_change_summary>
+    <price_modifier>guide_price</price_modifier>
+    <property_type>End terrace house</property_type>
+    <short_description>&lt;p class=&quot;top&quot;&gt;An amazing opportunity to acquire this four-bedroom townhouse. With vast potential having its own separate one-bedroom apartment this property really does lend itself to a variety of uses. This property was previously a nursery and therefore needs modernising/reconfiguring to become the perfect family home once more.&lt;/p&gt;&lt;p class=&quot;top&quot;&gt;Please click on the property brochure for full details of this property. Or call us for more information.&lt;/p&gt;</short_description>
+    <status>for_sale</status>
+    <street_name>Spencer Street</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/1904dd24c89f497ebfd584eb0aedc5f8ce819c6c.jpg</thumbnail_url>
+  </listing>
+  <listing>
+    <agent_address>Union House 111 New Union Street, Coventry</agent_address>
+    <agent_logo>https://st.zoocdn.com/zoopla_static_agent_logo_(667372).png</agent_logo>
+    <agent_name>HR Estate Agents</agent_name>
+    <agent_phone>024 7511 8725</agent_phone>
+    <category>Residential</category>
+    <country>England</country>
+    <country_code>gb</country_code>
+    <county>Warwickshire</county>
+    <description>****stunning family home in the sought after area of north leamington****hr Estate Agents is pleased to offer this extended 5 bedroom detached home which is within easy reach of Leamington town centre. This home is set on a large plot and is the ideal family home, the ground floor consists of an entrance hall, w/c, dining room, lounge, stunning kitchen diner and utility area. The first floor you will find 4 bedrooms one with en-suite and a family bathroom. On the top floor, there is a large master bedroom with en-suite. This home is done to a high standard throughout and even offers the potential to further extend and improve if needed.Outside you will find a large garden ideal for kids as well as a patio area great for entertaining guests. There is parking for multiple cars as well as an integral garage. Viewing is a must to be appreciated.Leicester Lane is one of the most popular roads in North Leamington and offers easy access to the midland motorway network via the A46 as well as being only a few minutes from Leamington train station. With all local amenities within a few minutes drive, including excellent primary and secondary schools, shops, doctors, restaurants, social clubs and more.EPC band: D</description>
+    <details_url>https://www.zoopla.co.uk/for-sale/details/54392127?utm_source=v1:_aOYFm6eHBbK8wezaKxysmDlNkAk0eDb&amp;utm_medium=api</details_url>
+    <displayable_address>Leicester Lane, Leamington Spa CV32</displayable_address>
+    <first_published_date>2020-02-27 11:17:26</first_published_date>
+    <floor_plan>https://lc.zoocdn.com/b08ba84e29b5bcb9a1103b9ed3bc007c20541fd7.jpg</floor_plan>
+    <furnished_state>
+</furnished_state>
+    <image_150_113_url>https://lid.zoocdn.com/150/113/374d687c224e2c00f198100be6c1113e21c0c133.jpg</image_150_113_url>
+    <image_354_255_url>https://lid.zoocdn.com/354/255/374d687c224e2c00f198100be6c1113e21c0c133.jpg</image_354_255_url>
+    <image_50_38_url>https://lid.zoocdn.com/50/38/374d687c224e2c00f198100be6c1113e21c0c133.jpg</image_50_38_url>
+    <image_645_430_url>https://lid.zoocdn.com/645/430/374d687c224e2c00f198100be6c1113e21c0c133.jpg</image_645_430_url>
+    <image_80_60_url>https://lid.zoocdn.com/80/60/374d687c224e2c00f198100be6c1113e21c0c133.jpg</image_80_60_url>
+    <image_caption>Img_2193.Jpg</image_caption>
+    <image_url>https://lid.zoocdn.com/354/255/374d687c224e2c00f198100be6c1113e21c0c133.jpg</image_url>
+    <last_published_date>2020-02-28 12:49:19</last_published_date>
+    <latitude>52.31153</latitude>
+    <listing_id>54392127</listing_id>
+    <listing_status>sale</listing_status>
+    <location_is_approximate>0</location_is_approximate>
+    <longitude>-1.52453</longitude>
+    <num_bathrooms>0</num_bathrooms>
+    <num_bedrooms>5</num_bedrooms>
+    <num_floors>0</num_floors>
+    <num_recepts>0</num_recepts>
+    <outcode>CV32</outcode>
+    <post_town>Leamington Spa</post_town>
+    <price>800000</price>
+    <price_change>
+      <date>2020-02-27 11:15:35</date>
+      <direction>
+</direction>
+      <percent>0%</percent>
+      <price>800000</price>
+    </price_change>
+    <price_modifier>offers_over</price_modifier>
+    <property_type>Detached house</property_type>
+    <short_description>&lt;p class=&quot;top&quot;&gt;****stunning family home in the sought after area of north leamington****  hr Estate Agents is pleased to offer this extended 5 bedroom detached home which is within easy reach of Leamington town centre. This home is set on a large plot and is the ideal family home, the ground floor consists of an entrance hall, w/c, dining room, lounge, stunning kitchen diner and utility area. The first floor you will find 4 bedrooms one with en-suite and a family bathroom. On the top floor, there is a large master bedroom with en-suite. This home is done to a high standard throughout and even offers the potential to further extend and improve if needed.  Outside you will find a large garden ideal for kids as well as a patio area great for entertaining guests. There is parking for multiple cars as well as an integral garage. Viewing is a must to be appreciated.  Leicester Lane is one of the most popular roads in North Leamington and offers easy access to the midland motorway network via the A46 as well as being only a few minutes from Leamington train station. With all local amenities within a few minutes drive, including excellent primary and secondary schools, shops, doctors, restaurants, social clubs and more.  EPC band: D&lt;/p&gt;</short_description>
+    <status>for_sale</status>
+    <street_name>Leicester Lane</street_name>
+    <thumbnail_url>https://lid.zoocdn.com/80/60/374d687c224e2c00f198100be6c1113e21c0c133.jpg</thumbnail_url>
+  </listing>
+  <longitude>-1.49875</longitude>
+  <postcode>
+</postcode>
+  <result_count>722</result_count>
+  <street>
+</street>
+  <town>Leamington Spa</town>
+</response>

@@ -6,11 +6,14 @@ from colorama import Fore, Style
 
 
 # # Σ Addresses: 3046
-# matched 2776 addresses
-# # Σ unmatched addresses: 270
-# Tier 2 matches = 464
-# Tier 3 matches = 198
-# Tier 1 matches = 2114
+# matched 2638 addresses
+# # Σ unmatched addresses: 408
+# Tier 2 matches =  390
+# Tier 3 matches =  134
+# Tier 1 matches =  2114
+# python3 addr_match.py  93.11s user 0.34s system 99% cpu 1:33.86 total
+
+
 
 # Data structure storing a dictionary.
 # The keys of the dictionary are numerical
@@ -36,7 +39,7 @@ class match_structure:
     # prints a debug stat of the number of matches in each tier
     def print(self):
         for tier in self.match_d:
-            print("Tier", tier, "matches =", len(self.match_d[tier])*2)
+            print("Tier", tier, "matches =", set_console_col(tier),len(self.match_d[tier])*2, Style.RESET_ALL)
 
 
 # class representing an address and its fuzzy matching ratio
@@ -72,19 +75,31 @@ def standardise_addr(addr):
     addr = addr.strip()
     return addr
 
+
 # helper function that determines if the addr_match object
 # qualifies for a match
 # function returns the tier (int) of the match type
 def chck_ratio(addr_match):
     if addr_match.f_ratio >= 63 and addr_match.f_tkn_ratio >= 73:
         return 1
-    elif addr_match.f_ratio >= 53 and addr_match.f_tkn_ratio >= 63:
+    elif addr_match.f_ratio >= 60 and addr_match.f_tkn_ratio >= 65:
         return 2
-    elif addr_match.f_ratio >= 43 and addr_match.f_tkn_ratio >= 53:
+    elif addr_match.f_ratio >= 55 and addr_match.f_tkn_ratio >= 60:
         return 3
     else:
         # at this point the match is so bad, it should be discarded
         return -1
+
+
+# sets the param colour based on the tier
+def set_console_col(tier):
+    colour = Fore.GREEN
+    if tier == 2:
+        colour = Fore.YELLOW
+    elif tier == 3:
+        colour = Fore.RED
+    return colour
+
 
 # parse the xlsx dataset using openpyxl into lists
 # ISSUE: large dataset, too much to parse into memory
@@ -179,11 +194,7 @@ for addr_1 in sa1_l:
                 match = addr
         # now append the match and addr_1 to matched_addr list
         tier = chck_ratio(match)
-        colour = Fore.GREEN
-        if tier == 2:
-            colour = Fore.YELLOW
-        elif tier == 3:
-            colour = Fore.RED
+        colour = set_console_col(tier)
         print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
         matched_addr.append(match.addr)
         matched_addr.append(addr_1)
