@@ -17,7 +17,7 @@ verbose = True
 # Tier 1 matches =  2114
 # python3 addr_match.py  103.43s user 4.82s system 104% cpu 1:43.79 total
 
-# Benchmark 13/08/20 PARALLEL /w ray
+# Benchmark 13/08/20 PARALLEL /w ray  (8 core)
 # # Σ Addresses: 3046
 # matched 2638 addresses
 # # Σ unmatched addresses: 408

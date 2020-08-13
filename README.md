@@ -1,6 +1,7 @@
 # Address matching
 
-This project involved writing software that given datasets of UK addresses, finds all matching pairs of addresses in the dataset.
+This project involved writing software that finds all of the matching UK addresses from 2 different datasets.
+- For example, the address "3, Steeple Court, Vicarage road, , Egham, Surrey, TW20 9GL, England" from one dataset would match to "FLAT 3, STEEPLE COURT, VICARAGE ROAD, EGHAM, TW20 9GL" from another dataset
 
 ### Software requirements
 - Python 3
