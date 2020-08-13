@@ -15,3 +15,4 @@ This project involved writing software that given datasets of UK addresses, find
 ### Performance
 - The script will make full use of the executing CPU due its multiprocessing implementation
 - Multiprocessing has been achieved using the python `Ray` library - Splitting the dataset into into n parts (where n is the number of cpu cores available on the host machine) and processing these parts in parallel before re-combining the results.
+- - This implementation helps combat the Ω(k^2) time complexity nature of the address matching problem.
