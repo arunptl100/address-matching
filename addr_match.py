@@ -7,7 +7,7 @@ import ray
 import psutil
 
 
-
+verbose = True
 # Benchmark 13/08/20 SERIAL /w ray initialised
 # # Σ Addresses: 3046
 # matched 2638 addresses
@@ -17,6 +17,7 @@ import psutil
 # Tier 1 matches =  2114
 # python3 addr_match.py  103.43s user 4.82s system 104% cpu 1:43.79 total
 
+# Benchmark 13/08/20 PARALLEL /w ray
 # # Σ Addresses: 3046
 # matched 2638 addresses
 # # Σ unmatched addresses: 408
@@ -201,7 +202,8 @@ def find_matches_parallel(sa1_l_s):
             # now append the match and addr_1 to matched_addr list
             tier = chck_ratio(match)
             colour = set_console_col(tier)
-            print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
+            if verbose:
+                print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
             # matched_addr.append(match.addr)
             # matched_addr.append(addr_1)
             matched_addr.append(match)
@@ -250,7 +252,7 @@ for sa1_l_s in sa1_l_split:
     results_id.insert(index, find_matches_parallel.remote(sa1_l_s))
     index += 1
 
-# (main process) block until all processes have finished
+# (main process) block until all (sub)processes have finished
 results = ray.get(results_id)
 # =========== END PARALLEL ===============
 
