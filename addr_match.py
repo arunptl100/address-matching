@@ -245,16 +245,19 @@ sa1_l_split = split_list(sa1_l, num_cpus)
 
 index = 0
 results_id = []
+# find matches for each list subset in parallel
 for sa1_l_s in sa1_l_split:
     results_id.insert(index, find_matches_parallel.remote(sa1_l_s))
     index += 1
 
+# (main process) block until all processes have finished
+results = ray.get(results_id)
 # =========== END PARALLEL ===============
 
 # now that matches have been found from each process
 # combine the results of each subprocess and populate the matches_data struct
 # also populate matched_addr list for debug/performance metrics
-results = ray.get(results_id)
+
 print("--gathering results--")
 matched_addr = []
 for result in results:
