@@ -6,13 +6,7 @@ from colorama import Fore, Style
 import ray
 import psutil
 
-# # Σ Addresses: 3046
-# matched 2638 addresses
-# # Σ unmatched addresses: 408
-# Tier 2 matches =  390
-# Tier 3 matches =  134
-# Tier 1 matches =  2114
-# python3 addr_match.py  93.11s user 0.34s system 99% cpu 1:33.86 total
+
 
 # Benchmark 13/08/20 SERIAL /w ray initialised
 # # Σ Addresses: 3046
@@ -22,6 +16,14 @@ import psutil
 # Tier 3 matches =  134
 # Tier 1 matches =  2114
 # python3 addr_match.py  103.43s user 4.82s system 104% cpu 1:43.79 total
+
+# # Σ Addresses: 3046
+# matched 2638 addresses
+# # Σ unmatched addresses: 408
+# Tier 2 matches =  390
+# Tier 3 matches =  134
+# Tier 1 matches =  2114
+# python3 addr_match.py  6.49s user 2.14s system 28% cpu 30.252 total
 
 
 # Data structure storing a dictionary.
@@ -125,6 +127,7 @@ def split_list(list, parts):
 #   if number of cpu cores = n then sa1_l is split into n parts of approximate
 #   equal length - sa1_l_s is one of those parts
 # function returns list matched_addr containing addr_match objects
+@ray.remote
 def find_matches_parallel(sa1_l_s):
     # find matching addresses from each list
     matched_addr = []
@@ -199,13 +202,14 @@ def find_matches_parallel(sa1_l_s):
             tier = chck_ratio(match)
             colour = set_console_col(tier)
             print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
-            matched_addr.append(match.addr)
-            matched_addr.append(addr_1)
+            # matched_addr.append(match.addr)
+            # matched_addr.append(addr_1)
+            matched_addr.append(match)
     return matched_addr
 
 
 # initialise multiprocessing lib ray
-num_cpus = psutil.cpu_count(logical=False)
+num_cpus = psutil.cpu_count(logical=True)
 ray.init(num_cpus=num_cpus)
 
 # parse the datasets
@@ -239,25 +243,38 @@ num_addresses = len(sa1_l) + len(sa2_l)
 # split sa1_l into (num_cpus) lists of approximate equaly length
 sa1_l_split = split_list(sa1_l, num_cpus)
 
+index = 0
+results_id = []
+for sa1_l_s in sa1_l_split:
+    results_id.insert(index, find_matches_parallel.remote(sa1_l_s))
+    index += 1
+
+# =========== END PARALLEL ===============
+
 # now that matches have been found from each process
 # combine the results of each subprocess and populate the matches_data struct
 # also populate matched_addr list for debug/performance metrics
+results = ray.get(results_id)
+print("--gathering results--")
+matched_addr = []
+for result in results:
+    matched_addr.extend(result)
+    # populate the matched_data structure
+    for match in result:
+        matches_data.insert_match(match)
 
 # add the match to the matches dictionary
 # matches_data.insert_match(match)
-# =========== END PARALLEL ===============
-
-
 
 print("# Σ Addresses:", num_addresses)
-print("matched", len(matched_addr), "addresses")
-print("# Σ unmatched addresses:", (num_addresses - len(matched_addr)))
+print("matched", len(matched_addr)*2, "addresses")
+print("# Σ unmatched addresses:", (num_addresses - len(matched_addr)*2))
 # print a summary of matches in each tier
 matches_data.print()
 
 
-print("\n\n\n\n")
-# print a list of unmatched addresses
-for addr in sa1_l:
-    if addr not in matched_addr:
-        print(addr)
+# print("\n\n\n\n")
+# # print a list of unmatched addresses
+# for addr in sa1_l:
+#     if addr not in matched_addr:
+#         print(addr)
