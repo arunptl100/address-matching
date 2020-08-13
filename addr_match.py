@@ -3,7 +3,8 @@ from openpyxl import load_workbook
 import re
 from collections import defaultdict
 from colorama import Fore, Style
-
+import ray
+import psutil
 
 # # Σ Addresses: 3046
 # matched 2638 addresses
@@ -13,6 +14,14 @@ from colorama import Fore, Style
 # Tier 1 matches =  2114
 # python3 addr_match.py  93.11s user 0.34s system 99% cpu 1:33.86 total
 
+# Benchmark 13/08/20 SERIAL /w ray initialised
+# # Σ Addresses: 3046
+# matched 2638 addresses
+# # Σ unmatched addresses: 408
+# Tier 2 matches =  390
+# Tier 3 matches =  134
+# Tier 1 matches =  2114
+# python3 addr_match.py  103.43s user 4.82s system 104% cpu 1:43.79 total
 
 
 # Data structure storing a dictionary.
@@ -101,9 +110,105 @@ def set_console_col(tier):
     return colour
 
 
-# parse the xlsx dataset using openpyxl into lists
-# ISSUE: large dataset, too much to parse into memory
-# parse each address as you go along?
+# Splits a given list into parts of approximately equal length
+# src: https://stackoverflow.com/questions/2130016/splitting-a-list-into-n-parts-of-approximately-equal-length
+def split_list(list, parts):
+    k, m = divmod(len(list), parts)
+    return (list[i * k + min(i, m):(i + 1) * k + min(i + 1, m)] for i in range(parts))
+
+
+# Function that finds matching addresses in sa2_l (global) for addresses in
+# sa1_l.
+# sa1_l = parsed addresses from dataset 1 as a list
+# sa2_l = parsed addresses from dataset 2 as a list
+# sa1_l_s = subset of sa1_l
+#   if number of cpu cores = n then sa1_l is split into n parts of approximate
+#   equal length - sa1_l_s is one of those parts
+# function returns list matched_addr containing addr_match objects
+def find_matches_parallel(sa1_l_s):
+    # find matching addresses from each list
+    matched_addr = []
+    for addr_1 in sa1_l_s:
+        # populate a list of matching addr_match objects for some address in list 1
+        matches = []
+        # iterate through every address in list 2
+        mod_addr_2 = ''
+        # standardise the address first
+        mod_addr_1 = standardise_addr(addr_1)
+        for addr_2 in sa2_l:
+            # standardise the address first
+            mod_addr_2 = standardise_addr(addr_2)
+
+            # determine fuzzy matching ratio
+            f_ratio = fuzz.ratio(mod_addr_1, mod_addr_2)
+            f_tkn_ratio = fuzz.token_sort_ratio(mod_addr_1, mod_addr_2)
+            # f_tkn_set_ratio = fuzz.token_set_ratio(mod_addr_1, mod_addr_2)
+            # f_partial_ratio = fuzz.partial_ratio(mod_addr_1, mod_addr_2)
+
+            # If the first part of the address is a number, check if they both match
+            # E.g 1, Charter House and 2, Charter House should not match
+            # At this point, the Address has been standardised
+            # see standardise_addr() fn for more details
+            # get first part of the address
+            addr_num1 = mod_addr_1.split(' ')[0]
+            addr_num2 = mod_addr_2.split(' ')[0]
+            # check if the first parts of the address are both numeric
+            if (addr_num1.isnumeric()) and (addr_num2.isnumeric()):
+                if addr_num1 != addr_num2:
+                    # if the nums dont match reduce their ratio 'score' by 12
+                    f_tkn_ratio -= 12
+                    f_ratio -= 12
+                else:
+                    f_tkn_ratio += 2
+                    f_ratio += 2
+            else:
+                # then one address must contain a leading number and the other
+                # doesnt, deduct 12
+                f_tkn_ratio -= 12
+                f_ratio -= 12
+
+            # check the post codes match up
+            # get the postcode from each address
+            addr_1_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_1)
+            addr_2_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_2)
+            if addr_1_pcode != addr_2_pcode:
+                # if the postcodes dont match reduce their ratio 'score' by 2
+                f_tkn_ratio -= 2
+                f_ratio -= 2
+            else:
+                f_tkn_ratio += 2
+                f_ratio += 2
+            pot_match = addr_match(addr_2, f_ratio, f_tkn_ratio, addr_1)
+            # check if the address is a potential match
+            # chck_ratio returns -1 if there's no match
+            if chck_ratio(pot_match) != -1:
+                # append the potential match to the matches list
+                matches.append(pot_match)
+            # print("DEBUG\n  ", mod_addr_1, "||", mod_addr_2, "\n\tratio: ",
+            #     f_ratio, "tkn ratio: ", f_tkn_ratio, "tkn set ratio ",
+            #     f_tkn_set_ratio, "partial ratio: ", f_partial_ratio)
+
+        # choose the address from matches with the highest ratio
+        # check there's at least one potential match to begin with
+        if len(matches) > 0:
+            match = matches[0]
+            for addr in matches:
+                if addr.f_tkn_ratio > match.f_tkn_ratio:
+                    match = addr
+            # now append the match and addr_1 to matched_addr list
+            tier = chck_ratio(match)
+            colour = set_console_col(tier)
+            print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
+            matched_addr.append(match.addr)
+            matched_addr.append(addr_1)
+    return matched_addr
+
+
+# initialise multiprocessing lib ray
+num_cpus = psutil.cpu_count(logical=False)
+ray.init(num_cpus=num_cpus)
+
+# parse the datasets
 sa1_l = []
 sa2_l = []
 dataset = load_workbook('resources/Sample_Address_Data.xlsx')
@@ -117,89 +222,32 @@ for col_cells_sa2 in worksheet.iter_cols(min_col=2, max_col=2, min_row=2):
     for cell_sa2 in col_cells_sa2:
         sa2_l.append(cell_sa2.value)
 
+# store the lists in shared memory
+ray.put(sa1_l)
+ray.put(sa2_l)
+
 # instantiate a matches_structure object
 matches_data = match_structure()
 
 # determine number of address before matching
 num_addresses = len(sa1_l) + len(sa2_l)
 
-# find matching addresses from each list
-matched_addr = []
-for addr_1 in sa1_l:
-    # populate a list of matching addr_match objects for some address in list 1
-    matches = []
-    # iterate through every address in list 2
-    mod_addr_2 = ''
-    # standardise the address first
-    mod_addr_1 = standardise_addr(addr_1)
-    for addr_2 in sa2_l:
-        # standardise the address first
-        mod_addr_2 = standardise_addr(addr_2)
 
-        # determine fuzzy matching ratio
-        f_ratio = fuzz.ratio(mod_addr_1, mod_addr_2)
-        f_tkn_ratio = fuzz.token_sort_ratio(mod_addr_1, mod_addr_2)
-        # f_tkn_set_ratio = fuzz.token_set_ratio(mod_addr_1, mod_addr_2)
-        # f_partial_ratio = fuzz.partial_ratio(mod_addr_1, mod_addr_2)
+# =========== PARALLEL SECTION ===========
+# find matches in parallel using ray
 
-        # If the first part of the address is a number, check if they both match
-        # E.g 1, Charter House and 2, Charter House should not match
-        # At this point, the Address has been standardised
-        # see standardise_addr() fn for more details
-        # get first part of the address
-        addr_num1 = mod_addr_1.split(' ')[0]
-        addr_num2 = mod_addr_2.split(' ')[0]
-        # check if the first parts of the address are both numeric
-        if (addr_num1.isnumeric()) and (addr_num2.isnumeric()):
-            if addr_num1 != addr_num2:
-                # if the nums dont match reduce their ratio 'score' by 12
-                f_tkn_ratio -= 12
-                f_ratio -= 12
-            else:
-                f_tkn_ratio += 2
-                f_ratio += 2
-        else:
-            # then one address must contain a leading number and the other
-            # doesnt, deduct 12
-            f_tkn_ratio -= 12
-            f_ratio -= 12
+# split sa1_l into (num_cpus) lists of approximate equaly length
+sa1_l_split = split_list(sa1_l, num_cpus)
 
-        # check the post codes match up
-        # get the postcode from each address
-        addr_1_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_1)
-        addr_2_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_2)
-        if addr_1_pcode != addr_2_pcode:
-            # if the postcodes dont match reduce their ratio 'score' by 2
-            f_tkn_ratio -= 2
-            f_ratio -= 2
-        else:
-            f_tkn_ratio += 2
-            f_ratio += 2
-        pot_match = addr_match(addr_2, f_ratio, f_tkn_ratio, addr_1)
-        # check if the address is a potential match
-            # chck_ratio returns -1 if there's no match
-        if chck_ratio(pot_match) != -1:
-            # append the potential match to the matches list
-            matches.append(pot_match)
-        # print("DEBUG\n  ", mod_addr_1, "||", mod_addr_2, "\n\tratio: ",
-        #     f_ratio, "tkn ratio: ", f_tkn_ratio, "tkn set ratio ",
-        #     f_tkn_set_ratio, "partial ratio: ", f_partial_ratio)
+# now that matches have been found from each process
+# combine the results of each subprocess and populate the matches_data struct
+# also populate matched_addr list for debug/performance metrics
 
-    # choose the address from matches with the highest ratio
-    # check there's at least one potential match to begin with
-    if len(matches) > 0:
-        match = matches[0]
-        for addr in matches:
-            if addr.f_tkn_ratio > match.f_tkn_ratio:
-                match = addr
-        # now append the match and addr_1 to matched_addr list
-        tier = chck_ratio(match)
-        colour = set_console_col(tier)
-        print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
-        matched_addr.append(match.addr)
-        matched_addr.append(addr_1)
-        # add the match to the matches dictionary
-        matches_data.insert_match(match)
+# add the match to the matches dictionary
+# matches_data.insert_match(match)
+# =========== END PARALLEL ===============
+
+
 
 print("# Σ Addresses:", num_addresses)
 print("matched", len(matched_addr), "addresses")
@@ -208,8 +256,8 @@ print("# Σ unmatched addresses:", (num_addresses - len(matched_addr)))
 matches_data.print()
 
 
-# print("\n\n\n\n")
+print("\n\n\n\n")
 # print a list of unmatched addresses
-# for addr in sa1_l:
-#     if addr not in matched_addr:
-#         print(addr)
+for addr in sa1_l:
+    if addr not in matched_addr:
+        print(addr)
