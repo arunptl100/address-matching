@@ -1,4 +1,4 @@
 fuzzywuzzy
-penpyxl
+openpyxl
 colorama
 ray

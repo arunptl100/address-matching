@@ -5,7 +5,7 @@ from collections import defaultdict
 from colorama import Fore, Style
 import ray
 import psutil
-
+from csv import DictReader
 
 verbose = True
 # Benchmark 13/08/20 SERIAL /w ray initialised
@@ -214,19 +214,47 @@ def find_matches_parallel(sa1_l_s):
 num_cpus = psutil.cpu_count(logical=True)
 ray.init(num_cpus=num_cpus)
 
-# parse the datasets
+
+# parse the dataset storing addresses in a ll
 sa1_l = []
 sa2_l = []
-dataset = load_workbook('resources/Sample_Address_Data.xlsx')
-worksheet = dataset.active
-# iterate over Sample Address 1 addresses
-for col_cells_sa1 in worksheet.iter_cols(min_col=1, max_col=1, min_row=2):
-    for cell_sa1 in col_cells_sa1:
-        sa1_l.append(cell_sa1.value)
-# iterate over Sample Address 2 addresses
-for col_cells_sa2 in worksheet.iter_cols(min_col=2, max_col=2, min_row=2):
-    for cell_sa2 in col_cells_sa2:
-        sa2_l.append(cell_sa2.value)
+# src: https://stackoverflow.com/questions/33975696/find-and-replace-multiple-comma-space-instances-in-a-string-python
+pattern = re.compile(r'(,\s){2,}')
+
+# dataset is very large, so for testing only parse up to limit records
+limit = 1000
+count = 0
+with open('AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as read_obj:
+    csv_dict_reader = DictReader(read_obj)
+    for row in csv_dict_reader:
+        address = (row['ORGANISATION'] + "," +  row['SUB_BUILDING'] + "," +
+                   row['BUILDING_NAME'] + "," + row['BUILDING_NUMBER'] + "," +
+                   row['STREET_NAME'] + "," + row['LOCALITY'] + "," +
+                   row['TOWN_NAME'] + "," + row['POST_TOWN'] + "," +
+                   row['ISLAND'] + "," + row['POSTCODE'] + ",")
+        # clean up the address removing extra commas ,
+        address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
+        sa1_l.append(address)
+        if count == limit:
+            break
+        count += 1
+        # print(address)
+
+# parse the 2nd dataset
+count = 0
+with open('all-domestic-certificates/domestic-E06000001-Hartlepool/domestic-E06000001-Hartlepool-certificates.csv', 'r', encoding="utf8") as read_obj:
+    csv_dict_reader = DictReader(read_obj)
+    for row in csv_dict_reader:
+        address = (row['ADDRESS1'] + "," +  row['ADDRESS2'] + "," +
+                   row['ADDRESS3'] + "," + row['POSTCODE'] + ",")
+        # clean up the address removing extra commas ,
+        address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
+        sa2_l.append(address)
+        if count == limit:
+            break
+        count += 1
+
+
 
 # store the lists in shared memory
 ray.put(sa1_l)
@@ -271,9 +299,9 @@ for result in results:
 # add the match to the matches dictionary
 # matches_data.insert_match(match)
 
-print("# Σ Addresses:", num_addresses)
+print("# Total Addresses:", num_addresses)
 print("matched", len(matched_addr)*2, "addresses")
-print("# Σ unmatched addresses:", (num_addresses - len(matched_addr)*2))
+print("# Total unmatched addresses:", (num_addresses - len(matched_addr)*2))
 # print a summary of matches in each tier
 matches_data.print()
 
