@@ -222,7 +222,7 @@ sa2_l = []
 pattern = re.compile(r'(,\s){2,}')
 
 # dataset is very large, so for testing only parse up to limit records
-limit = 1000
+limit = 10000
 count = 0
 with open('AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as read_obj:
     csv_dict_reader = DictReader(read_obj)
