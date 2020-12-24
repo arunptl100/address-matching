@@ -6,7 +6,9 @@ from colorama import Fore, Style
 import ray
 import psutil
 from csv import DictReader
+import sys
 
+processed_addresses = 0
 verbose = True
 # Benchmark 13/08/20 SERIAL /w ray initialised
 # # Σ Addresses: 3046
@@ -133,6 +135,10 @@ def find_matches_parallel(sa1_l_s):
     # find matching addresses from each list
     matched_addr = []
     for addr_1 in sa1_l_s:
+        processed_addresses += 1
+        if processed_addresses == 1000:
+            print("1000")
+            sys.stdout.flush()
         # populate a list of matching addr_match objects for some address in list 1
         matches = []
         # iterate through every address in list 2
@@ -210,10 +216,6 @@ def find_matches_parallel(sa1_l_s):
     return matched_addr
 
 
-# initialise multiprocessing lib ray
-num_cpus = psutil.cpu_count(logical=True)
-ray.init(num_cpus=num_cpus)
-
 
 # parse the dataset storing addresses in a ll
 sa1_l = []
@@ -222,8 +224,10 @@ sa2_l = []
 pattern = re.compile(r'(,\s){2,}')
 
 # dataset is very large, so for testing only parse up to limit records
-limit = 10000
-count = 0
+limit = 1000
+count = 1
+print("**Parsing dataset 1, this may take a while**")
+sys.stdout.flush()
 with open('AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as read_obj:
     csv_dict_reader = DictReader(read_obj)
     for row in csv_dict_reader:
@@ -241,7 +245,9 @@ with open('AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as re
         # print(address)
 
 # parse the 2nd dataset
-count = 0
+count = 1
+print("**Parsing dataset 2, this may take a while**")
+sys.stdout.flush()
 with open('all-domestic-certificates/domestic-E06000001-Hartlepool/domestic-E06000001-Hartlepool-certificates.csv', 'r', encoding="utf8") as read_obj:
     csv_dict_reader = DictReader(read_obj)
     for row in csv_dict_reader:
@@ -254,11 +260,20 @@ with open('all-domestic-certificates/domestic-E06000001-Hartlepool/domestic-E060
             break
         count += 1
 
+print("Loaded dataset 1 with ", len(sa1_l), " addresses ")
+print("Loaded dataset 2 with ", len(sa2_l), " addresses ")
+sys.stdout.flush()
 
+# initialise multiprocessing lib ray
+num_cpus = psutil.cpu_count(logical=True)
+ray.init(num_cpus=num_cpus)
 
 # store the lists in shared memory
 ray.put(sa1_l)
 ray.put(sa2_l)
+
+# store processed_addresses in shared memory
+ray.put(processed_addresses)
 
 # instantiate a matches_structure object
 matches_data = match_structure()
