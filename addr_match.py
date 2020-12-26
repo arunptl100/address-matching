@@ -5,11 +5,18 @@ from collections import defaultdict
 from colorama import Fore, Style
 import ray
 import psutil
+import glob
 from csv import DictReader
 import sys
 
-processed_addresses = 0
+# increasing tolerance will increase matches but decrease match quality
+tolerance = 10
+# verbose will display match details
 verbose = True
+
+
+
+# 2020 Mbp w/ 16gb
 # Benchmark 13/08/20 SERIAL /w ray initialised
 # # Σ Addresses: 3046
 # matched 2638 addresses
@@ -94,11 +101,11 @@ def standardise_addr(addr):
 # qualifies for a match
 # function returns the tier (int) of the match type
 def chck_ratio(addr_match):
-    if addr_match.f_ratio >= 63 and addr_match.f_tkn_ratio >= 73:
+    if addr_match.f_ratio >= (63-tolerance) and addr_match.f_tkn_ratio >= (73-tolerance):
         return 1
-    elif addr_match.f_ratio >= 60 and addr_match.f_tkn_ratio >= 65:
+    elif addr_match.f_ratio >= (60-tolerance) and addr_match.f_tkn_ratio >= (65-tolerance):
         return 2
-    elif addr_match.f_ratio >= 55 and addr_match.f_tkn_ratio >= 60:
+    elif addr_match.f_ratio >= (55-tolerance) and addr_match.f_tkn_ratio >= (60-tolerance):
         return 3
     else:
         # at this point the match is so bad, it should be discarded
@@ -135,10 +142,6 @@ def find_matches_parallel(sa1_l_s):
     # find matching addresses from each list
     matched_addr = []
     for addr_1 in sa1_l_s:
-        processed_addresses += 1
-        if processed_addresses == 1000:
-            print("1000")
-            sys.stdout.flush()
         # populate a list of matching addr_match objects for some address in list 1
         matches = []
         # iterate through every address in list 2
@@ -181,6 +184,8 @@ def find_matches_parallel(sa1_l_s):
             # get the postcode from each address
             addr_1_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_1)
             addr_2_pcode = re.findall(r'[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-Z]{2}', mod_addr_2)
+
+            sys.stdout.flush()
             if addr_1_pcode != addr_2_pcode:
                 # if the postcodes dont match reduce their ratio 'score' by 2
                 f_tkn_ratio -= 2
@@ -209,7 +214,8 @@ def find_matches_parallel(sa1_l_s):
             tier = chck_ratio(match)
             colour = set_console_col(tier)
             if verbose:
-                print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL)
+                print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL, flush=True)
+                sys.stderr.flush()
             # matched_addr.append(match.addr)
             # matched_addr.append(addr_1)
             matched_addr.append(match)
@@ -224,13 +230,18 @@ sa2_l = []
 pattern = re.compile(r'(,\s){2,}')
 
 # dataset is very large, so for testing only parse up to limit records
-limit = 1000
-count = 1
-print("**Parsing dataset 1, this may take a while**")
-sys.stdout.flush()
-with open('AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as read_obj:
+limit = 5000
+count = 0
+
+
+print("**Parsing AddressBaseCore_FULL_2020-07-20_001.csv**" , flush=True)
+
+with open(r'C:/Users/rish/Downloads/Files_For_James/AddressBaseCore/AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as read_obj:
     csv_dict_reader = DictReader(read_obj)
     for row in csv_dict_reader:
+        if count == limit:
+            break
+        count += 1
         address = (row['ORGANISATION'] + "," +  row['SUB_BUILDING'] + "," +
                    row['BUILDING_NAME'] + "," + row['BUILDING_NUMBER'] + "," +
                    row['STREET_NAME'] + "," + row['LOCALITY'] + "," +
@@ -239,30 +250,44 @@ with open('AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as re
         # clean up the address removing extra commas ,
         address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
         sa1_l.append(address)
-        if count == limit:
-            break
-        count += 1
         # print(address)
 
-# parse the 2nd dataset
-count = 1
-print("**Parsing dataset 2, this may take a while**")
-sys.stdout.flush()
-with open('all-domestic-certificates/domestic-E06000001-Hartlepool/domestic-E06000001-Hartlepool-certificates.csv', 'r', encoding="utf8") as read_obj:
-    csv_dict_reader = DictReader(read_obj)
-    for row in csv_dict_reader:
-        address = (row['ADDRESS1'] + "," +  row['ADDRESS2'] + "," +
-                   row['ADDRESS3'] + "," + row['POSTCODE'] + ",")
-        # clean up the address removing extra commas ,
-        address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
-        sa2_l.append(address)
-        if count == limit:
-            break
-        count += 1
 
-print("Loaded dataset 1 with ", len(sa1_l), " addresses ")
-print("Loaded dataset 2 with ", len(sa2_l), " addresses ")
-sys.stdout.flush()
+# parse the 2nd dataset
+count = 0
+# iterate through all the directories to get all domestic csvs
+# src: https://stackoverflow.com/questions/2212643/python-recursive-folder-read
+# recursively go through every file from the base director root_dir
+# if the file is a csv file and is not recommendation then add it to
+# domestic_certs_paths
+root_dir = "C:/Users/rish/Downloads/Files_For_James/non-domestic/all-non-domestic-certificates/non-domestic-E06000023-Bristol-City-of"
+non_domestic_certs_paths = []
+for filename in glob.iglob(root_dir + '**/**', recursive=True):
+    if(filename.endswith(".csv") and ("recommendations" not in filename) and (filename.endswith("certificates.csv")) ):
+         non_domestic_certs_paths.append(filename)
+         print("**Parsing", filename.rsplit("\\", 2)[-2], "csv **", flush=True)
+
+# parse every csv pointed to in the list domedomestic_certs_paths
+for csv_file in non_domestic_certs_paths:
+
+    with open(csv_file, 'r', encoding="utf8") as read_obj:
+        csv_dict_reader = DictReader(read_obj)
+        for row in csv_dict_reader:
+            if count == limit:
+                break
+            count += 1
+            address = (row['ADDRESS1'] + "," +  row['ADDRESS2'] + "," +
+                       row['ADDRESS3'] + "," + row['POSTCODE'] + ",")
+            # clean up the address removing extra commas ,
+            address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
+            sa2_l.append(address)
+            # print(address)
+
+
+
+print("Loaded dataset 1 with ", len(sa1_l), " addresses ", flush=True)
+print("Loaded dataset 2 with ", len(sa2_l), " addresses ", flush=True)
+
 
 # initialise multiprocessing lib ray
 num_cpus = psutil.cpu_count(logical=True)
@@ -271,9 +296,6 @@ ray.init(num_cpus=num_cpus)
 # store the lists in shared memory
 ray.put(sa1_l)
 ray.put(sa2_l)
-
-# store processed_addresses in shared memory
-ray.put(processed_addresses)
 
 # instantiate a matches_structure object
 matches_data = match_structure()
