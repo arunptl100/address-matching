@@ -32,7 +32,7 @@ Output:
 Todo :
 	Progress metric , how close to completion ?
 	Parse all domestic cert csvs ? Done
-	Output csv ^ ?
+	Output csv ^ ? Done - can ctrl c during execution and intermediate matches will appear in csv - Done
 	
 
 Issues: 

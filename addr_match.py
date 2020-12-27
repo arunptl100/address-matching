@@ -7,7 +7,9 @@ import ray
 import psutil
 import glob
 from csv import DictReader
+import csv
 import sys
+import os
 
 # increasing tolerance will increase matches but decrease match quality
 tolerance = 10
@@ -73,6 +75,14 @@ class addr_match:
         self.f_tkn_ratio = f_tkn_ratio
         self.m_addr = m_addr
 
+# helper class storing an address and either a uprn or LMK_KEY
+# depending on the dataset the address came from
+# These objects are appneded to a list during the dataset parsing procedure
+class parsed_address:
+    def __init__(self, addr, uprn, lmk_key):
+        self.addr = addr
+        self.uprn = uprn
+        self.lmk_key = lmk_key
 
 # Helper function that standardises a given string address
 def standardise_addr(addr):
@@ -147,10 +157,10 @@ def find_matches_parallel(sa1_l_s):
         # iterate through every address in list 2
         mod_addr_2 = ''
         # standardise the address first
-        mod_addr_1 = standardise_addr(addr_1)
+        mod_addr_1 = standardise_addr(addr_1.addr)
         for addr_2 in sa2_l:
             # standardise the address first
-            mod_addr_2 = standardise_addr(addr_2)
+            mod_addr_2 = standardise_addr(addr_2.addr)
 
             # determine fuzzy matching ratio
             f_ratio = fuzz.ratio(mod_addr_1, mod_addr_2)
@@ -193,7 +203,7 @@ def find_matches_parallel(sa1_l_s):
             else:
                 f_tkn_ratio += 2
                 f_ratio += 2
-            pot_match = addr_match(addr_2, f_ratio, f_tkn_ratio, addr_1)
+            pot_match = addr_match(addr_2.addr, f_ratio, f_tkn_ratio, addr_1.addr)
             # check if the address is a potential match
             # chck_ratio returns -1 if there's no match
             if chck_ratio(pot_match) != -1:
@@ -214,11 +224,16 @@ def find_matches_parallel(sa1_l_s):
             tier = chck_ratio(match)
             colour = set_console_col(tier)
             if verbose:
-                print(colour + "Found a match\n  " + addr_1 + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL, flush=True)
+                print(colour + "Found a match\n  " + addr_1.addr + " || " + match.addr + "\n\tratio: " + str(match.f_ratio), "tkn ratio: ", str(match.f_tkn_ratio), "tier:", str(tier) + Style.RESET_ALL, flush=True)
                 sys.stderr.flush()
+
             # matched_addr.append(match.addr)
             # matched_addr.append(addr_1)
             matched_addr.append(match)
+            # append the match to the csv file
+            with open(output_path, 'a', newline='') as csvfile:
+                filewriter = csv.writer(csvfile, delimiter=',')
+                filewriter.writerow([addr_1.uprn, addr_2.lmk_key, addr_1.addr, addr_2.addr, tier])
     return matched_addr
 
 
@@ -242,6 +257,7 @@ with open(r'C:/Users/rish/Downloads/Files_For_James/AddressBaseCore/AddressBaseC
         if count == limit:
             break
         count += 1
+
         address = (row['ORGANISATION'] + "," +  row['SUB_BUILDING'] + "," +
                    row['BUILDING_NAME'] + "," + row['BUILDING_NUMBER'] + "," +
                    row['STREET_NAME'] + "," + row['LOCALITY'] + "," +
@@ -249,7 +265,7 @@ with open(r'C:/Users/rish/Downloads/Files_For_James/AddressBaseCore/AddressBaseC
                    row['ISLAND'] + "," + row['POSTCODE'] + ",")
         # clean up the address removing extra commas ,
         address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
-        sa1_l.append(address)
+        sa1_l.append(parsed_address(address, row['\ufeffUPRN'], None))
         # print(address)
 
 
@@ -280,7 +296,7 @@ for csv_file in non_domestic_certs_paths:
                        row['ADDRESS3'] + "," + row['POSTCODE'] + ",")
             # clean up the address removing extra commas ,
             address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
-            sa2_l.append(address)
+            sa2_l.append(parsed_address(address, None, row['LMK_KEY']))
             # print(address)
 
 
@@ -288,6 +304,20 @@ for csv_file in non_domestic_certs_paths:
 print("Loaded dataset 1 with ", len(sa1_l), " addresses ", flush=True)
 print("Loaded dataset 2 with ", len(sa2_l), " addresses ", flush=True)
 
+
+# setup the output csv
+# check if the output csv already exists
+output_path = 'out/link.csv'
+if os.path.exists(output_path):
+    # then delete the file
+    os.remove(output_path)
+# now create a new output csv
+open(output_path, 'w')
+# setup the csv headers
+with open(output_path, 'a') as csvfile:
+    filewriter = csv.writer(csvfile, delimiter=',',
+                            quotechar="|", quoting=csv.QUOTE_MINIMAL)
+    filewriter.writerow(['UPRN','LMK_KEY', 'Address 1', 'Address 2', 'Tier'])
 
 # initialise multiprocessing lib ray
 num_cpus = psutil.cpu_count(logical=True)
