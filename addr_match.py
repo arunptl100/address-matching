@@ -1,21 +1,20 @@
 from fuzzywuzzy import fuzz
-from openpyxl import load_workbook
-import re
 from collections import defaultdict
 from colorama import Fore, Style
 import ray
 import psutil
-import glob
-from csv import DictReader
 import csv
 import sys
 import os
+import gc
+import re
+import setup as parser
+
 
 # increasing tolerance will increase matches but decrease match quality
-tolerance = 10
+tolerance = parser.tolerance
 # verbose will display match details
-verbose = True
-
+verbose = parser.verbose
 
 
 # 2020 Mbp w/ 16gb
@@ -75,14 +74,6 @@ class addr_match:
         self.f_tkn_ratio = f_tkn_ratio
         self.m_addr = m_addr
 
-# helper class storing an address and either a uprn or LMK_KEY
-# depending on the dataset the address came from
-# These objects are appneded to a list during the dataset parsing procedure
-class parsed_address:
-    def __init__(self, addr, uprn, lmk_key):
-        self.addr = addr
-        self.uprn = uprn
-        self.lmk_key = lmk_key
 
 # Helper function that standardises a given string address
 def standardise_addr(addr):
@@ -135,8 +126,14 @@ def set_console_col(tier):
 # Splits a given list into parts of approximately equal length
 # src: https://stackoverflow.com/questions/2130016/splitting-a-list-into-n-parts-of-approximately-equal-length
 def split_list(list, parts):
-    k, m = divmod(len(list), parts)
-    return (list[i * k + min(i, m):(i + 1) * k + min(i + 1, m)] for i in range(parts))
+    avg = len(list) / float(parts)
+    out = []
+    last = 0.0
+    while last < len(list):
+        out.append(list[int(last):int(last + avg)])
+        last += avg
+    return out
+
 
 
 # Function that finds matching addresses in sa2_l (global) for addresses in
@@ -231,117 +228,50 @@ def find_matches_parallel(sa1_l_s):
             # matched_addr.append(addr_1)
             matched_addr.append(match)
             # append the match to the csv file
-            with open(output_path, 'a', newline='') as csvfile:
+            with open(parser.output_path, 'a', newline='') as csvfile:
                 filewriter = csv.writer(csvfile, delimiter=',')
-                filewriter.writerow([addr_1.uprn, addr_2.lmk_key, addr_1.addr, addr_2.addr, tier])
+                filewriter.writerow([addr_1.id, addr_2.id, addr_1.addr, match.addr, tier])
+            gc.collect()
     return matched_addr
 
 
-
 # parse the dataset storing addresses in a ll
-sa1_l = []
-sa2_l = []
-# src: https://stackoverflow.com/questions/33975696/find-and-replace-multiple-comma-space-instances-in-a-string-python
-pattern = re.compile(r'(,\s){2,}')
-
-# dataset is very large, so for testing only parse up to limit records
-limit = 5000
-count = 0
-
-
-print("**Parsing AddressBaseCore_FULL_2020-07-20_001.csv**" , flush=True)
-
-with open(r'C:/Users/rish/Downloads/Files_For_James/AddressBaseCore/AddressBaseCore_FULL_2020-07-20_001.csv', 'r', encoding="utf8") as read_obj:
-    csv_dict_reader = DictReader(read_obj)
-    for row in csv_dict_reader:
-        if count == limit:
-            break
-        count += 1
-
-        address = (row['ORGANISATION'] + "," +  row['SUB_BUILDING'] + "," +
-                   row['BUILDING_NAME'] + "," + row['BUILDING_NUMBER'] + "," +
-                   row['STREET_NAME'] + "," + row['LOCALITY'] + "," +
-                   row['TOWN_NAME'] + "," + row['POST_TOWN'] + "," +
-                   row['ISLAND'] + "," + row['POSTCODE'] + ",")
-        # clean up the address removing extra commas ,
-        address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
-        sa1_l.append(parsed_address(address, row['\ufeffUPRN'], None))
-        # print(address)
-
-
-# parse the 2nd dataset
-count = 0
-# iterate through all the directories to get all domestic csvs
-# src: https://stackoverflow.com/questions/2212643/python-recursive-folder-read
-# recursively go through every file from the base director root_dir
-# if the file is a csv file and is not recommendation then add it to
-# domestic_certs_paths
-root_dir = "C:/Users/rish/Downloads/Files_For_James/non-domestic/all-non-domestic-certificates/non-domestic-E06000023-Bristol-City-of"
-non_domestic_certs_paths = []
-for filename in glob.iglob(root_dir + '**/**', recursive=True):
-    if(filename.endswith(".csv") and ("recommendations" not in filename) and (filename.endswith("certificates.csv")) ):
-         non_domestic_certs_paths.append(filename)
-         print("**Parsing", filename.rsplit("\\", 2)[-2], "csv **", flush=True)
-
-# parse every csv pointed to in the list domedomestic_certs_paths
-for csv_file in non_domestic_certs_paths:
-
-    with open(csv_file, 'r', encoding="utf8") as read_obj:
-        csv_dict_reader = DictReader(read_obj)
-        for row in csv_dict_reader:
-            if count == limit:
-                break
-            count += 1
-            address = (row['ADDRESS1'] + "," +  row['ADDRESS2'] + "," +
-                       row['ADDRESS3'] + "," + row['POSTCODE'] + ",")
-            # clean up the address removing extra commas ,
-            address = (re.sub(pattern, ', ', address).lstrip(',')).rstrip(',')
-            sa2_l.append(parsed_address(address, None, row['LMK_KEY']))
-            # print(address)
-
+sa1_l = parser.parse_dataset_1()
+sa2_l = parser.parse_dataset_2()
+# setup output csvs
+parser.setup_output_csv()
 
 
 print("Loaded dataset 1 with ", len(sa1_l), " addresses ", flush=True)
 print("Loaded dataset 2 with ", len(sa2_l), " addresses ", flush=True)
 
-
-# setup the output csv
-# check if the output csv already exists
-output_path = 'out/link.csv'
-if os.path.exists(output_path):
-    # then delete the file
-    os.remove(output_path)
-# now create a new output csv
-open(output_path, 'w')
-# setup the csv headers
-with open(output_path, 'a') as csvfile:
-    filewriter = csv.writer(csvfile, delimiter=',',
-                            quotechar="|", quoting=csv.QUOTE_MINIMAL)
-    filewriter.writerow(['UPRN','LMK_KEY', 'Address 1', 'Address 2', 'Tier'])
+num_cpus = psutil.cpu_count(logical=True)
+# split sa1_l into (num_cpus) lists of approximate equaly length
+print("preparing datasets for parallel processing...", flush=True)
+sa1_l_split = split_list(sa1_l, num_cpus)
+# detroy sa1_l to free memory
+sa1_l.clear()
 
 # initialise multiprocessing lib ray
-num_cpus = psutil.cpu_count(logical=True)
 ray.init(num_cpus=num_cpus)
 
 # store the lists in shared memory
-ray.put(sa1_l)
+# ray.put(sa1_l)
 ray.put(sa2_l)
 
-# instantiate a matches_structure object
+
 matches_data = match_structure()
 
-# determine number of address before matching
 num_addresses = len(sa1_l) + len(sa2_l)
 
+ray.put(sa1_l_split)
 
 # =========== PARALLEL SECTION ===========
 # find matches in parallel using ray
 
-# split sa1_l into (num_cpus) lists of approximate equaly length
-sa1_l_split = split_list(sa1_l, num_cpus)
-
 index = 0
 results_id = []
+print("Finding matches...", flush=True)
 # find matches for each list subset in parallel
 for sa1_l_s in sa1_l_split:
     results_id.insert(index, find_matches_parallel.remote(sa1_l_s))

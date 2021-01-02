@@ -30,12 +30,9 @@ Output:
 
 
 Todo :
-	Progress metric , how close to completion ?
+	Progress metric , how close to completion ? Not needed
 	Parse all domestic cert csvs ? Done
 	Output csv ^ ? Done - can ctrl c during execution and intermediate matches will appear in csv - Done
-	
 
-Issues: 
-	Address base core takes too long to parse 
-	Domestic certs seems to be incomplete - most have reccommendations.csv but not certificates.csv
-	Non domestic certs are fine
+	Parse csvs using pandas or dask
+
