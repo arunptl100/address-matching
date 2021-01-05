@@ -68,11 +68,13 @@ class match_structure:
 # Intended purpose: for every address, store a list of addr_match objects
 # ,of the matching addresses in the other dataset(s)
 class addr_match:
-    def __init__(self, addr, f_ratio, f_tkn_ratio, m_addr):
+    def __init__(self, addr, f_ratio, f_tkn_ratio, m_addr, id_a2):
         self.addr = addr
         self.f_ratio = f_ratio
         self.f_tkn_ratio = f_tkn_ratio
         self.m_addr = m_addr
+        # address 2 identifier
+        self.id_a2 = id_a2
 
 
 # Helper function that standardises a given string address
@@ -200,7 +202,7 @@ def find_matches_parallel(sa1_l_s):
             else:
                 f_tkn_ratio += 2
                 f_ratio += 2
-            pot_match = addr_match(addr_2.addr, f_ratio, f_tkn_ratio, addr_1.addr)
+            pot_match = addr_match(addr_2.addr, f_ratio, f_tkn_ratio, addr_1.addr, addr_2.id)
             # check if the address is a potential match
             # chck_ratio returns -1 if there's no match
             if chck_ratio(pot_match) != -1:
@@ -230,10 +232,15 @@ def find_matches_parallel(sa1_l_s):
             # append the match to the csv file
             with open(parser.output_path, 'a', newline='') as csvfile:
                 filewriter = csv.writer(csvfile, delimiter=',')
-                filewriter.writerow([addr_1.id, addr_2.id, addr_1.addr, match.addr, tier])
+                filewriter.writerow([addr_1.id, match.id_a2, addr_1.addr, match.addr, tier])
             gc.collect()
     return matched_addr
 
+
+num_cpus = psutil.cpu_count(logical=True)
+
+# initialise multiprocessing lib ray
+ray.init(num_cpus=num_cpus, memory=30000 * 1024 * 1024)
 
 # parse the dataset storing addresses in a ll
 sa1_l = parser.parse_dataset_1()
@@ -245,15 +252,13 @@ parser.setup_output_csv()
 print("Loaded dataset 1 with ", len(sa1_l), " addresses ", flush=True)
 print("Loaded dataset 2 with ", len(sa2_l), " addresses ", flush=True)
 
-num_cpus = psutil.cpu_count(logical=True)
+
 # split sa1_l into (num_cpus) lists of approximate equaly length
 print("preparing datasets for parallel processing...", flush=True)
 sa1_l_split = split_list(sa1_l, num_cpus)
+ray.put(sa1_l_split)
 # detroy sa1_l to free memory
 sa1_l.clear()
-
-# initialise multiprocessing lib ray
-ray.init(num_cpus=num_cpus)
 
 # store the lists in shared memory
 # ray.put(sa1_l)
@@ -264,8 +269,6 @@ matches_data = match_structure()
 
 num_addresses = len(sa1_l) + len(sa2_l)
 
-ray.put(sa1_l_split)
-
 # =========== PARALLEL SECTION ===========
 # find matches in parallel using ray
 
@@ -274,6 +277,7 @@ results_id = []
 print("Finding matches...", flush=True)
 # find matches for each list subset in parallel
 for sa1_l_s in sa1_l_split:
+    ray.put(sa1_l_s)
     results_id.insert(index, find_matches_parallel.remote(sa1_l_s))
     index += 1
 

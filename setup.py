@@ -10,11 +10,16 @@ tolerance = 3
 # verbose will display match details
 verbose = True
 
-
+# 1/8 = 4131598.5
+# 1/4 = 8263197
 #  1/2 = 16526393
 # Load up to limit records in the csv
 # To  load all records, set the number to max int / very lage value
-limit = 1000
+limit = 4131599
+
+# WARNING worker.py:1047 -- Warning: The remote function __main__.find_matches_parallel has size 86233916 when pickled. It will be stored in Redis, which could cause memory issues. This may mean that its definition uses a large array or other object.
+
+
 
 # src: https://stackoverflow.com/questions/33975696/find-and-replace-multiple-comma-space-instances-in-a-string-python
 pattern = re.compile(r'(,\s){2,}')
@@ -72,7 +77,7 @@ def parse_dataset_1():
 def parse_dataset_2():
     # example code below ... Add your own parsing code if required
 
-    
+
     count = 0
     # parse the 2nd dataset
     sa2_l = []
