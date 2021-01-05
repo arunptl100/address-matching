@@ -26,6 +26,12 @@ This project involved writing software that finds all of the matching UK address
 - Matching addresses are pushed to the output file at `output_path`
 - - Matches are saved as they are found meaning the program may be interrupted (for example stopped) at any     time.
 
+### Output 
+- Matches are stored in the csv file `/out/link.csv` and can be viewed at any point during the programs execution.
+- Each stored match also contains a `tier` field.
+- - This is a measure of the quality of the match - how likely it is to be a correct and accurate match.
+- - Tier 1 matches represent "high quality" matches and Tier 3 represent the worst.
+
 ### Matching a single address
 - This use-case describes matching a single address (instead of many addresses in a dataset) to addresses in a another large dataset.
 1) Use the script as normal but with a dataset of size 1, containing the single address to be matched.
